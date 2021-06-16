@@ -15,6 +15,7 @@ Button,
 import "./Header.css";
 import CartWidget from "./CartWidget";
 
+
 function SideNavbar() {
     const [visible, setVisible] = useState(false);
 
@@ -23,7 +24,7 @@ function SideNavbar() {
     };
 
      return (
-       <Grid columns={1} className="ui top attached menu">
+       <Grid columns={1} className="ui top menu">
          <Grid.Column className="fluid container navbar">
            <Container textAlign="left">
              <Button
@@ -34,7 +35,11 @@ function SideNavbar() {
                visible={visible}
                onClick={openSidebar}
              ></Button>
-             <Input icon="search" placeholder="Buscar..." />
+             <Input
+               className="mobile hidden"
+               icon="search"
+               placeholder="Buscar..."
+             />
            </Container>
            <Container textAlign="center">
              <Image src={logo} size="tiny" float="right" />
@@ -44,7 +49,7 @@ function SideNavbar() {
 
          <Grid.Column>
            <Sidebar
-             className="Sidebar container"
+             className="container"
              as={Menu}
              animation="overlay"
              icon="labeled"

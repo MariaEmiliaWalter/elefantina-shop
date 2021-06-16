@@ -2,7 +2,6 @@ import {React, useState } from 'react'
 import logo from './logo.svg';
 //Semnatic UI
 import {
-Link,
 Container,
 Icon,
 Button,
@@ -14,6 +13,7 @@ Button,
 } from 'semantic-ui-react'
 
 import "./Header.css";
+import CartWidget from "./CartWidget";
 
 function SideNavbar() {
     const [visible, setVisible] = useState(false);
@@ -39,13 +39,7 @@ function SideNavbar() {
            <Container textAlign="center">
              <Image src={logo} size="tiny" float="right" />
            </Container>
-           <Button
-             floated="right"
-             style={{ fontSize: "100%" }}
-             basic color="grey"
-             circular
-             icon="shopping bag"
-           ></Button>
+           <CartWidget />
          </Grid.Column>
 
          <Grid.Column>
@@ -64,16 +58,20 @@ function SideNavbar() {
                Home
              </Menu.Item>
              <Menu.Item as="a">
-               <Icon name="home" />
-               Home
+               <Icon name="child" />
+               Productos
              </Menu.Item>
              <Menu.Item as="a">
-               <Icon name="home" />
-               Home
+               <Icon name="heart" />
+               Nosotros
              </Menu.Item>
              <Menu.Item as="a">
-               <Icon name="home" />
-               Home
+               <Icon name="hand peace" />
+               #ElefantinaTips
+             </Menu.Item>
+             <Menu.Item as="a">
+               <Icon name="paper plane" />
+               Contacto
              </Menu.Item>
            </Sidebar>
          </Grid.Column>

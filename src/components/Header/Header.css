@@ -1,0 +1,10 @@
+.menu{
+    height: 4.5rem !important;
+}
+
+.navbar{
+    display: flex !important;
+    justify-content: space-between;
+    width: 100%;
+    height: 4.5rem !important;
+}

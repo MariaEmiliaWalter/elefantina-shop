@@ -11,7 +11,7 @@ function ItemCard (props) {
     return (
       <div>
         <Card className="ItemCard">
-          <Image src={props.img} wrapped ui={false} />
+          <Image src={props.img} wrapped ui={false} className="img_style" />
           <Card.Content>
             <Card.Header>{props.title}</Card.Header>
             <Card.Meta>{props.price}</Card.Meta>

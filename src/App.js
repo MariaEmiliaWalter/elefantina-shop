@@ -7,7 +7,10 @@ function App() {
   return (
     <div className="App">
         <Header/>
-        <ItemListContainer/>
+        <div className="Body">
+          <ItemListContainer/>
+        </div>
+        
     </div>
   );
 }

@@ -1,20 +1,26 @@
-.ItemCard {
-/*   display: flex;
+/* .ItemCard {
+  display: flex;
   justify-content: center;
   margin: 20px;
   text-Align: "center";
   font-Size: 20px;
-  padding: 5px; */
-}
+  padding: 5px; 
+}*/
+
 
 .Card-group{
   display: grid;
-  width: 80%;
+  max-width: 100%;
   column-gap: 1rem;
   row-gap: 1rem;
+
 }
 
 .displayGroup{
 display: flex;
 justify-content: center;
+}
+
+.img_style{
+  height: 20rem;
 }

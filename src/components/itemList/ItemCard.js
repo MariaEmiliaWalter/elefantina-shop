@@ -29,7 +29,11 @@ function ItemCard (props) {
               <Button
                 basic
                 icon="minus"
-                onClick={() => {if (counter>= 1) {setCounter(counter - 1)}}}
+                onClick={() => {
+                  if (counter >= 1) {
+                    setCounter(counter - 1);
+                  }
+                }}
               ></Button>
               <Label className="ui counter" content={counter}></Label>
               <Button
@@ -38,6 +42,12 @@ function ItemCard (props) {
                 onClick={() => setCounter(counter + 1)}
               ></Button>
             </div>
+            <Button
+              content="Añadir al carrito"
+              inverted
+              color="brown"
+              className="ui button"
+            ></Button>
           </Card.Content>
         </Card>
       </div>

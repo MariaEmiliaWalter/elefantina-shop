@@ -1,17 +1,17 @@
-import {React,useState} from 'react'
+import {React,useEffect,useState} from 'react'
 import {
- Card, Image,Label,Button
+ Card, Image,Button
 } from "semantic-ui-react";
 import "./ItemListContainer.css";
+import ItemCount from "./itemCount";
+//import { ItemsData } from './ItemsData';
 
-
-
-
-function ItemCard (props) {
-    const [counter, setCounter] = useState(0);
+function ItemCard ({ItemsData}) {
 
     return (
       <div>
+        {ItemsData.map ((props) => {
+            return (
         <Card className="ItemCard">
           <div>
             <a class="ui left corner label">
@@ -21,40 +21,26 @@ function ItemCard (props) {
           </div>
           <Card.Content>
             <Card.Header>{props.title}</Card.Header>
-            <Card.Meta>{props.price}</Card.Meta>
+            <Card.Meta>$ {props.price}</Card.Meta>
             <Card.Description>{props.description}</Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <div className="">
-              <Button
-                basic
-                icon="minus"
-                onClick={() => {
-                  if (counter >= 1) {
-                    setCounter(counter - 1);
-                  }
-                }}
-              ></Button>
-              <Label className="ui counter" content={counter}></Label>
-              <Button
-                basic
-                icon="plus"
-                onClick={() => setCounter(counter + 1)}
-              ></Button>
-            </div>
+            <ItemCount />
             <Button
               content="Añadir al carrito"
               inverted
               color="brown"
-              className="ui button"
+              className="ui toggle button"
             ></Button>
           </Card.Content>
-        </Card>
+        </Card> 
+        );
+            })}
       </div>
     );
 }
 
-export default ItemCard
+export default ItemCard;
 
 
 

@@ -1,15 +1,17 @@
 import {React, useState} from 'react';
-import {Icon,
+import {
 Button,
   Grid,
   Menu,
-  Sidebar} from "semantic-ui-react";
+  Sidebar, Label, MenuItem} from "semantic-ui-react";
 import "./Header.css";
+import ItemCount from '../itemList/itemCount';
 
 function CartWidget() {
 
-    // const counter = () =>{
-    // --- AÑADIR ITEM A LIST CART + CONTADOR (Como en framer)---
+  // faltan: inclusión de cards con datos de productos añadidos desde el contador + añadir al carrito 
+  //  Extra: Checkout + router hacia esto.
+
 const [visible, setVisible] = useState(false);
 
     const openSidebar = () => {
@@ -18,16 +20,16 @@ const [visible, setVisible] = useState(false);
 
     return (
       <div>
-        <Button
-          floated="right"
-          style={{ fontSize: "100%" }}
-          basic
-          color="grey"
-          circular
-          icon="shopping bag"
-          visible={visible}
-          onClick={openSidebar}
-        ></Button>
+          <Button
+            floated="right"
+            style={{ fontSize: "100%" }}
+            basic
+            color="grey"
+            circular
+            icon="shopping bag"
+            visible={visible}
+            onClick={openSidebar}
+          ></Button>     
         <Grid.Column>
           <Sidebar
             direction="right"

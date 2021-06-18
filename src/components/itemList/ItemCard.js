@@ -1,4 +1,4 @@
-import {React,useEffect,useState} from 'react'
+import {React} from 'react'
 import {
  Card, Image,Button
 } from "semantic-ui-react";
@@ -12,10 +12,10 @@ function ItemCard ({ItemsData}) {
       <div>
         {ItemsData.map ((props) => {
             return (
-        <Card className="ItemCard">
+        <Card key={props.id} className="ItemCard">
           <div>
-            <a class="ui left corner label">
-              <i class="heart icon"></i>
+            <a href="#" className="ui left corner label">
+              <i className="heart icon"></i>
             </a>
             <Image src={props.img} wrapped ui={false} className="img_style" />
           </div>

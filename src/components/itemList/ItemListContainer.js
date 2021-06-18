@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "./ItemListContainer.css";
 import ItemCard from './ItemCard';
 import { Card } from 'semantic-ui-react'
-import img from './muselinas-de-bebe.svg';
+//import img from './muselinas-de-bebe.svg';
 //DATA
 import { ItemsData } from './ItemsData';
 

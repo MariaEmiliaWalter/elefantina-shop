@@ -3,9 +3,9 @@ import {
 Button,
   Grid,
   Menu,
-  Sidebar, Label, MenuItem} from "semantic-ui-react";
+  Sidebar} from "semantic-ui-react";
 import "./Header.css";
-import ItemCount from '../itemList/itemCount';
+//import ItemCount from '../itemList/itemCount';
 
 function CartWidget() {
 
@@ -37,7 +37,7 @@ const [visible, setVisible] = useState(false);
             as={Menu}
             animation="overlay"
             icon="labeled"
-            width="big"
+            width="wide"
             onHide={() => setVisible(false)}
             vertical
             visible={visible}

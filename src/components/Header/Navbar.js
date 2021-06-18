@@ -56,7 +56,7 @@ function SideNavbar() {
              onHide={() => setVisible(false)}
              vertical
              visible={visible}
-             width="big"
+             width="thin"
            >
              <Menu.Item as="a">
                <Icon name="home" />

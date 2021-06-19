@@ -1,4 +1,4 @@
-import {React} from 'react'
+import { React,useState } from "react";
 import {
  Card, Image,Button
 } from "semantic-ui-react";
@@ -8,33 +8,42 @@ import ItemCount from "./itemCount";
 
 function ItemCard ({ItemsData}) {
 
+  //const [isTextChanged, setIsTextChanged] = React.useToggle();
+  const [isTextChanged, setIsTextChanged] = useState(`Añadir al carrito`);
+const ChangeText = () => { setIsTextChanged ( isTextChanged => `Listo`) }
+
     return (
       <div>
-        {ItemsData.map ((props) => {
+        {ItemsData.map ((items) => {
             return (
-        <Card key={props.id} className="ItemCard">
-          <div>
-            <a href="#" className="ui left corner label">
-              <i className="heart icon"></i>
-            </a>
-            <Image src={props.img} wrapped ui={false} className="img_style" />
-          </div>
-          <Card.Content>
-            <Card.Header>{props.title}</Card.Header>
-            <Card.Meta>$ {props.price}</Card.Meta>
-            <Card.Description>{props.description}</Card.Description>
-          </Card.Content>
-          <Card.Content extra>
-            <ItemCount />
-            <Button
-              content="Añadir al carrito"
-              inverted
-              color="brown"
-              className="ui toggle button"
-            ></Button>
-          </Card.Content>
-        </Card> 
-        );
+              <Card key={items.id} className="ItemCard">
+                <div>
+                  <a href="#" className="ui left corner label">
+                    <i className="heart icon"></i>
+                  </a>
+                  <Image
+                    src={items.img}
+                    wrapped
+                    ui={false}
+                    className="img_style"
+                  />
+                </div>
+                <Card.Content>
+                  <Card.Header>{items.title}</Card.Header>
+                  <Card.Meta>$ {items.price}</Card.Meta>
+                  <Card.Description>{items.description}</Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                  <ItemCount />
+                  <Button key={items.id}
+                    inverted
+                    color="brown"
+                    className="ui button"
+                    onClick={ChangeText}>{isTextChanged}
+                  </Button>
+                </Card.Content>
+              </Card>
+            );
             })}
       </div>
     );

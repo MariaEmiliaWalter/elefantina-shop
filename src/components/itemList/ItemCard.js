@@ -12,7 +12,6 @@ function ItemCard(items) {
   const handleClick = () => {
     setIsTextChanged();
   };
-
   return (
     <div>
       <Card.Group centered className="ui stackable cards">

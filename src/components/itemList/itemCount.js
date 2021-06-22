@@ -5,7 +5,11 @@ import { Label, Button } from "semantic-ui-react";
 
 function ItemCount(props) {
  const [counter, setCounter] = useState(0);
-     
+
+/* const hi = () => { $( "button" ).click(function() {
+  $( "p" ).toggle( "slow" );
+}) } */
+
   return (
     <div>
       <Button

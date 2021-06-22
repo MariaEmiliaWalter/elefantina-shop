@@ -4,7 +4,7 @@ import img_2 from '../../images/remera.webp'
 import img_3 from '../../images/muselinas-de-bebe.svg'
 
 
-export const ItemsData = [
+export const Items = [
     { id: 1, img: { img_2}, title: "Remera", description: "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad", price: 245 },
     { id: 2, img: { img_3}, title: "Muselina", description: "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad", price: 245 },
     { id: 3, img: { img_1}, title: "Muselina", description: "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad", price: 245 },

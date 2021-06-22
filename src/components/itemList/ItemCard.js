@@ -1,35 +1,39 @@
 
-import { React,useState,useEffect,setTimeOut} from "react";
+import React, {useState,setTimeOut} from "react";
 import {
- Card, Image,Button, Grid
+ Card, Image,Button
 } from "semantic-ui-react";
 import "./ItemListContainer.css";
 import ItemCount from "./itemCount";
-//import { ItemsData } from './ItemsData';
 
-function ItemCard(items) {
+
+function ItemCard({items}) {
   const [isTextChanged, setIsTextChanged] = useState(`Más información`);
 
+
   const handleClick = () => {
-    setIsTextChanged();
+    setTimeout(() => {
+      setIsTextChanged()
+    }, 1000);
   };
+
   return (
         <div>
       <Card.Group centered className="ui stackable cards">
-        <Card key={items.id} className="ItemCard card">
+        <Card key={items.items.id} className="ItemCard card">
           <div>
             <a href="#" className="ui left corner label">
               <i className="heart icon"></i>
             </a>
             <Image
-              src={items.img}
+              src={items.items.img}
               wrapped
               ui={false}
               className="img_style"
             />
             <a href="#" className="ui center">
               <Button
-                key={items.id}
+                key={items.items.id}
                 circular
                 icon="shopping bag"
                 basic
@@ -40,14 +44,14 @@ function ItemCard(items) {
             </a>
           </div>
           <Card.Content>
-            <Card.Header>{items.title}</Card.Header>
-            <Card.Meta>$ {items.price}</Card.Meta>
-            <Card.Description>{items.description}</Card.Description>
+            <Card.Header>{items.items.title}</Card.Header>
+            <Card.Meta>$ {items.items.price}</Card.Meta>
+            <Card.Description>{items.items.description}</Card.Description>
           </Card.Content>
           <Card.Content extra>
             <ItemCount />
             <Button
-              key={items.id}
+              key={items.items.id}
               inverted
               color="brown"
               type="submit"

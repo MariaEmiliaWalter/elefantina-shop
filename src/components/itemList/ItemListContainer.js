@@ -1,25 +1,25 @@
-import {React, useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import "./ItemListContainer.css";
 import ItemCard from './ItemCard';
-import { Card } from 'semantic-ui-react'
-//import img from './muselinas-de-bebe.svg';
-//DATA
-//import { Items } from './ItemsData';
+import axios from 'axios';
+
 
 
 function ItemListContainer() {
-
+ 
     const [data, setData] = useState({});
+    console.log(data);
     useEffect(() => {
-        fetch("https://sheetdb.io/api/v1/ygrxgklerhj5t")
-          .then((res) => res.json())
-          .then((dataApi) => setData(dataApi));
-    }, [] );
+        axios("https://sheetdb.io/api/v1/ygrxgklerhj5t")
+          .then((res) => setData(res.data));
+    }, []);
         
     return (
       <div className="displayGroup">
-        <ItemCard items={data} />
-      </div>
+        {data.map( (item) => {
+          return <ItemCard items={item} key={item.id} />
+        })}
+        </div>
     );
 }
 

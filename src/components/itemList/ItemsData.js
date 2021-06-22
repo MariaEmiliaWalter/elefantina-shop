@@ -1,6 +1,6 @@
 
 import img_1 from '../../images/muselinas-de-bebe.svg'
-import img_2 from '../../images/remera.webp'
+import img_2 from '../../images/muselinas-de-bebe.svg'
 import img_3 from '../../images/muselinas-de-bebe.svg'
 
 export const Items = [

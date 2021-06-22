@@ -13,7 +13,7 @@ function ItemCard(items) {
     setIsTextChanged();
   };
   return (
-    <div>
+        <div>
       <Card.Group centered className="ui stackable cards">
         <Card key={items.id} className="ItemCard card">
           <div>

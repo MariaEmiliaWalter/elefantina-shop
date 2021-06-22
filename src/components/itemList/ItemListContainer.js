@@ -7,11 +7,11 @@ import axios from 'axios';
 
 function ItemListContainer() {
  
-    const [data, setData] = useState({});
+    const [data, setData] = useState([]);
     console.log(data);
     useEffect(() => {
         axios("https://sheetdb.io/api/v1/ygrxgklerhj5t")
-          .then((res) => setData(res.data));
+          .then((res) => setData((res.data)));
     }, []);
         
     return (

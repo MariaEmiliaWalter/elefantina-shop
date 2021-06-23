@@ -8,7 +8,7 @@ function itemDetailsContainer() {
     //retornar promise con delay(set time out)
 const [details, setDetails] = useState([]);
 useEffect(() => {
-    axios("https://sheetdb.io/api/v1/ygrxgklerhj5t").then((res) =>
+    axios("https://run.mocky.io/v3/f3096973-418a-4863-aa6f-23f13b8698cd").then((res) =>
         setDetails(res.data));
 }, [])
 

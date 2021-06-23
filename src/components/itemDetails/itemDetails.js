@@ -28,5 +28,4 @@ function itemDetails(item) {
 
 export default itemDetails;
 
-
 // card props => title , price, info, favorito, seleccionar talle stock

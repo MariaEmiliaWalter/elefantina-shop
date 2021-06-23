@@ -1,8 +1,6 @@
 import { React, useState } from "react";
 import { Label, Button } from "semantic-ui-react";
 
-
-
 function ItemCount (stockInicial) {
  const [counter, setCounter] = useState(0);
 
@@ -13,7 +11,6 @@ function ItemCount (stockInicial) {
 
   const StockDisponible = () => { setStock( stock - 1) };
 
-  
   return (
     <div>
       <div> Stock disponible: {stock} </div>

@@ -1,25 +1,27 @@
 import { React, useState, useEffect, setTimeOut } from "react";
 import {
-  Card, Image, Button, Grid
+  Card, Image, Button
 } from "semantic-ui-react";
 import "./ItemListContainer.css";
 import ItemCount from "./itemCount";
 //import { ItemsData } from './ItemsData';
 
 function ItemCard({ ItemsData }) {
-
   const [isTextChanged, setIsTextChanged] = useState(`Más información`);
 
 
   const handleClick = () => {
-    setIsTextChanged();
+    //isTextChanged.preventDefault();
+    setTimeout(() => {
+      setIsTextChanged()
+    }, 1000);
   };
 
   return (
     <div>
       <Card.Group centered className="ui stackable cards">
 
-        {ItemsData.map((items) => {
+        { ItemsData.map((items) => {
           return (
             <Card key={items.id} className="ItemCard card">
               <div>
@@ -50,16 +52,17 @@ function ItemCard({ ItemsData }) {
                 <Card.Description>{items.description}</Card.Description>
               </Card.Content>
               <Card.Content extra>
-                <ItemCount />
+                <ItemCount stockInicial={items.stock} key={items.id} />
                 <Button
                   key={items.id}
                   inverted
                   color="brown"
                   type="submit"
                   className="ui button"
-                  content={isTextChanged ? `Más información` : `Más info`}
-                  onClick={handleClick}>
-                </Button>
+                  //content={isTextChanged ? `Más información` : `Más info`}
+                  onClick={handleClick}
+                > { isTextChanged ? `Más información` : `Más info`}
+               </Button>
               </Card.Content>
             </Card>
           );

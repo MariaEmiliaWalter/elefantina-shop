@@ -3,15 +3,20 @@ import { Label, Button } from "semantic-ui-react";
 
 
 
-function ItemCount(props) {
+function ItemCount (stockInicial) {
  const [counter, setCounter] = useState(0);
 
 /* const hi = () => { $( "button" ).click(function() {
   $( "p" ).toggle( "slow" );
 }) } */
+  const [stock, setStock] = useState({stockInicial});
 
+  const StockDisponible = () => { setStock( stock - 1) };
+
+  
   return (
     <div>
+      <div> Stock disponible: {stock} </div>
       <Button
         basic
         icon="minus"
@@ -25,7 +30,12 @@ function ItemCount(props) {
       <Button
         basic
         icon="plus"
-        onClick={() => setCounter(counter + 1)}
+        onClick={() => {
+          if ( {stock} > {counter} ) {
+            setCounter(counter + 1);
+            StockDisponible();
+          }
+        }}
       ></Button>
     </div>
   );

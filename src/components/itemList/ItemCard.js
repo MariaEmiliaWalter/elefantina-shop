@@ -48,7 +48,7 @@ function ItemCard({items}) {
             <Card.Description>{items.description}</Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <ItemCount key={items.id}/>
+            <ItemCount stockInicial={items.stock}/>
             <Button
               key={items.id}
               inverted

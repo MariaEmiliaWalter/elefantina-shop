@@ -1,12 +1,11 @@
 import { React, useState } from "react";
 import { Label, Button } from "semantic-ui-react";
 
-function ItemCount() {
+function ItemCount({stockInicial}) {
+  
+
   const [counter, setCounter] = useState(0);
-
-  //let VariableStockInicial = stockInicial;
-
-  const [stock, setStock] = useState(4);
+  const [stock, setStock] = useState(Number(stockInicial));
 
 
   const sumarItems =() =>{

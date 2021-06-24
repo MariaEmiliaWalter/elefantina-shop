@@ -13,7 +13,8 @@ useEffect(() => {
 }, [])
 
     return ( 
-        <div>{details.map((i)=>{
+        <div >
+        {details.map((i)=>{
             <itemDetails item={i}/>
         })}     
         </div>

@@ -18,8 +18,8 @@ function ItemCard({items}) {
   };
 
   return (
-        <div>
-      <Card.Group centered className="ui stackable cards">
+  <div >
+      <Card.Group centered className="ui stackable cards displayGroup">
         <Card key={items.id} className="ItemCard card">
           <div>
             <Image

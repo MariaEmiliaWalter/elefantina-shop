@@ -22,9 +22,18 @@ function ItemCount({stockInicial}) {
     }
   };
 
+/* const sinStock = () => {
+if ( stock = 0){
+  document.getElementsByClassName("stockDisponible").textContent = "No hay más stock disponible"
+} else {
+  document.getElementsByClassName("stockDisponible").textContent = "Stock disponible: {stock}"
+}
+}; */
+
+
   return (
     <div>
-      <div> Stock disponible: {stock} </div>
+      <div id="stockDisponible" > Stock disponible: {stock} </div>
       <Button
         basic
         icon="minus"

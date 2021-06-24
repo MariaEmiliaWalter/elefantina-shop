@@ -2,7 +2,7 @@ import React, {useState, useEffect, setError} from 'react';
 import "./ItemListContainer.css";
 import ItemCard from './ItemCard';
 //import axios from 'axios';
-
+import { Grid } from "semantic-ui-react";
 
 
 function ItemListContainer() {
@@ -27,14 +27,16 @@ function ItemListContainer() {
           setError(error);
         }
       )
-  }, [])
+  }, [] );
 
     return (
-      <div className="displayGroup">
-        {data.map( (item) => {
-          return  <ItemCard items={item} key={item.id} />
-        })}
-        </div>
+  <Grid>
+    {data.map( (item) => (
+      <Grid.Column stackable computer={4} tablet={5} mobile={16}>
+      <ItemCard items={item} key={item.id} /> 
+      </Grid.Column>
+      )
+    )} </Grid>
     );
 }
 

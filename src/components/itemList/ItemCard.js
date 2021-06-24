@@ -20,17 +20,17 @@ function ItemCard({items}) {
   return (
         <div>
       <Card.Group centered className="ui stackable cards">
-        <Card key={items.item.id} className="ItemCard card">
+        <Card key={items.id} className="ItemCard card">
           <div>
-            <a href="#" className="ui left corner label">
-              <i className="heart icon"></i>
-            </a>
             <Image
-              src={items.item.img}
-              wrapped
+              src={items.imagen}
               ui={false}
               className="img_style"
             />
+            <a href="#" className="ui left corner label">
+              <i className="heart icon"></i>
+            </a>
+            
             <a href="#" className="ui center">
               <Button
                 circular
@@ -43,14 +43,14 @@ function ItemCard({items}) {
             </a>
           </div>
           <Card.Content>
-            <Card.Header>{items.item.title}</Card.Header>
-            <Card.Meta>$ {items.item.price}</Card.Meta>
-            <Card.Description>{items.item.description}</Card.Description>
+            <Card.Header>{items.title}</Card.Header>
+            <Card.Meta>$ {items.price}</Card.Meta>
+            <Card.Description>{items.description}</Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <ItemCount />
+            <ItemCount key={items.id}/>
             <Button
-              key={items.item.id}
+              key={items.id}
               inverted
               color="brown"
               type="submit"

@@ -1,12 +1,13 @@
 [
-    {"id": "1",
-    "img": "https://www.cestaland.com/2533-large_default/muselina-aden-anais-musy-70x70cm-algodon-comprar-gasa-bebe.jpg",
+    { 
+        "id": "1",
+    "imagen": "https://www.chicadecanela.com/787-home_default/pinocchio-muselina-bebe.jpg",
     "title":"Muselina","description":"Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad",
      "price": "345",
      "stock": "200" },
     {
         "id": "2",
-        "img": "https://www.cestaland.com/2533-large_default/muselina-aden-anais-musy-70x70cm-algodon-comprar-gasa-bebe.jpg",
+        "imagen": "https://www.chicadecanela.com/787-home_default/pinocchio-muselina-bebe.jpg",
         "title": "Muselina",
         "description": "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad",
         "price": "345",
@@ -14,7 +15,7 @@
     },
     {
         "id": "3",
-        "img": "https://www.cestaland.com/2533-large_default/muselina-aden-anais-musy-70x70cm-algodon-comprar-gasa-bebe.jpg",
+        "imagen": "https://www.chicadecanela.com/787-home_default/pinocchio-muselina-bebe.jpg",
         "title": "Muselina",
         "description": "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad",
         "price": "345",
@@ -22,7 +23,7 @@
     },
     {
         "id": "4",
-        "img": "https://www.cestaland.com/2533-large_default/muselina-aden-anais-musy-70x70cm-algodon-comprar-gasa-bebe.jpg",
+        "imagen": "https://www.chicadecanela.com/787-home_default/pinocchio-muselina-bebe.jpg",
         "title": "Muselina",
         "description": "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad",
         "price": "345",
@@ -30,7 +31,7 @@
     },
     {
         "id": "5",
-        "img": "https://www.cestaland.com/2533-large_default/muselina-aden-anais-musy-70x70cm-algodon-comprar-gasa-bebe.jpg",
+        "imagen": "https://www.chicadecanela.com/787-home_default/pinocchio-muselina-bebe.jpg",
         "title": "Muselina",
         "description": "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad",
         "price": "345",
@@ -38,7 +39,7 @@
     },
         {
             "id": "6",
-            "img": "https://www.cestaland.com/2533-large_default/muselina-aden-anais-musy-70x70cm-algodon-comprar-gasa-bebe.jpg",
+            "imagen": "https://www.chicadecanela.com/787-home_default/pinocchio-muselina-bebe.jpg",
             "title": "Muselina",
             "description": "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad",
             "price": "345",

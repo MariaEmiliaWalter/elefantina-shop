@@ -23,9 +23,9 @@ function ItemListContainer() {
   }, []);
 
   return (
-    <Grid>
+    <Grid className="displayGroup"  >
       {data.map((item) => (
-        <Grid.Column stackable computer={4} tablet={5} mobile={16}>
+        <Grid.Column computer={4} tablet={8} mobile={16} >
           <ItemCard items={item} key={item.id} />
         </Grid.Column>
       )
@@ -34,3 +34,5 @@ function ItemListContainer() {
 }
 
 export default ItemListContainer;
+
+//centered computer={4} tablet={5} mobile={16} 

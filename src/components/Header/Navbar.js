@@ -1,5 +1,8 @@
 import {React, useState } from 'react'
+import {Link} from "react-router-dom";
 import logo from './logo.svg';
+//CSS
+import "./Header.css";
 //Semnatic UI
 import {
 Container,
@@ -12,9 +15,8 @@ Button,
   Image,
 } from 'semantic-ui-react'
 
-import "./Header.css";
+//Components
 import CartWidget from "./CartWidget";
-
 
 function SideNavbar() {
     const [visible, setVisible] = useState(false);
@@ -58,26 +60,29 @@ function SideNavbar() {
              visible={visible}
              width="thin"
            >
-             <Menu.Item as="a">
+             <Link to="/"><Menu.Item as="a">
                <Icon name="home" />
                Home
-             </Menu.Item>
-             <Menu.Item as="a">
-               <Icon name="child" />
-               Productos
-             </Menu.Item>
-             <Menu.Item as="a">
+             </Menu.Item></Link>
+             
+             <Link to="/productos"><Menu.Item as="a">
+                 <Icon name="child"/>Productos
+                 </Menu.Item></Link>
+             
+             <Link to="/nosotros"><Menu.Item as="a">
                <Icon name="heart" />
                Nosotros
-             </Menu.Item>
-             <Menu.Item as="a">
+             </Menu.Item></Link>
+            
+             <Link to="/tips"><Menu.Item as="a">
                <Icon name="hand peace" />
                #ElefantinaTips
-             </Menu.Item>
-             <Menu.Item as="a">
+             </Menu.Item></Link>
+             
+             <Link to="/contacto"><Menu.Item as="a">
                <Icon name="paper plane" />
                Contacto
-             </Menu.Item>
+             </Menu.Item></Link>
            </Sidebar>
          </Grid.Column>
        </Grid>

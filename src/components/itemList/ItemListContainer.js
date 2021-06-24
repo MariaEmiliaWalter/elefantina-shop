@@ -1,17 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect, setError } from 'react';
 import "./ItemListContainer.css";
 import ItemCard from './ItemCard';
-//DATA
-import { Items } from './ItemsData';
+import { Grid } from "semantic-ui-react";
 
 
 function ItemListContainer() {
+
+  const [data, setData] = useState([]);
+  console.log(data);
+
+  useEffect(() => {
+    fetch("https://run.mocky.io/v3/994862f1-a497-4a62-8200-150b89a37070")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setData(result);
+        },
+        (error) => {
+          setError(error);
+        }
+      )
+  }, []);
+
   return (
-    <div className="displayGroup">
-      <ItemCard ItemsData={Items} />
-    </div>
-  )
+    <Grid>
+      {data.map((item) => (
+        <Grid.Column stackable computer={4} tablet={5} mobile={16}>
+          <ItemCard items={item} key={item.id} />
+        </Grid.Column>
+      )
+      )} </Grid>
+  );
 }
 
 export default ItemListContainer;
-

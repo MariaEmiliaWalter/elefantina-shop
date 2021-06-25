@@ -1,21 +1,20 @@
 import React from 'react';
-import {img} from "../../images/remera.webp";
 import {
-    Segment, Image, Grid
+    Segment, Image, Grid, Divider
 } from "semantic-ui-react";
 
 
-function itemDetails(item) {
+function ItemDetails({items}) {
     return (
         <div>
             <Segment>
                 <Grid columns={2} relaxed='very'>
                     <Grid.Column>
-                            <Image src={img} />
+                        <Image src={items.imagen} />
                     </Grid.Column>
                     <Grid.Column>
-                        <h1>{item.i.title}</h1>
-                        <Grid.arguments> {items.i.description} </Grid.arguments>
+                        <h1>hola</h1>
+                        <Grid.arguments>jfkjsdfklsdfj</Grid.arguments>
                     </Grid.Column>
                 </Grid>
 
@@ -26,6 +25,6 @@ function itemDetails(item) {
     )
 }
 
-export default itemDetails;
+export default ItemDetails;
 
 // card props => title , price, info, favorito, seleccionar talle stock

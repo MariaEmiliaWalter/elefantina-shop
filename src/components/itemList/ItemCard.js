@@ -1,9 +1,10 @@
-import React, { useState, setTimeOut } from "react";
+import React, { useState} from "react";
 import {
   Card, Image, Button
 } from "semantic-ui-react";
 import "./ItemListContainer.css";
 import ItemCount from "./itemCount";
+import {Link} from "react-router-dom";
 
 
 function ItemCard({ items }) {
@@ -48,7 +49,7 @@ function ItemCard({ items }) {
           </Card.Content>
           <Card.Content extra>
             <ItemCount stockInicial={items.stock} />
-            <Button
+            <Link to={`/details/${items.id}`}><Button
               key={items.id}
               inverted
               color="brown"
@@ -56,7 +57,7 @@ function ItemCard({ items }) {
               className="ui button"
               content={isTextChanged ? `Más información` : `Más info`}
               onClick={handleClick}
-            ></Button>
+            ></Button></Link>
           </Card.Content>
         </Card>
       </Card.Group>

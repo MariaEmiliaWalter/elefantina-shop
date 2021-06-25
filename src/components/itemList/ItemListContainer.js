@@ -3,7 +3,6 @@ import "./ItemListContainer.css";
 import ItemCard from './ItemCard';
 import { Grid } from "semantic-ui-react";
 
-
 function ItemListContainer() {
 
   const [data, setData] = useState([]);

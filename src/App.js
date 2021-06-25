@@ -7,6 +7,7 @@ import Productos from "./Views/Productos"
 import Home from "./Views/Home"
 import Nosotros from "./Views/Nosotros"
 import Contact from "./Views/Contact"
+import ItemsDetails from "./Views/Details";
 //Components
 import Header from "./components/Header/Header";
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/productos" component={Productos} ></Route>
           <Route path="/nosotros" component={Nosotros} ></Route>
           <Route path="/contacto" component={Contact} ></Route>
+            <Route path="/details/:id" component={ItemsDetails} ></Route>
           </Switch>
         </div>
     </div>

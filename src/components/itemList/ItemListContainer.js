@@ -9,7 +9,7 @@ function ItemListContainer() {
   console.log(data);
 
   useEffect(() => {
-    fetch("https://sheet.best/api/sheets/c5330ac8-a26c-4991-aaeb-cca45f148d48")
+    fetch("http://localhost:3000/Bebes")
       .then(res => res.json())
       .then(
         (result) => {

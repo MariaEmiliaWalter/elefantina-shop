@@ -9,7 +9,7 @@ function ItemListContainer() {
   console.log(data);
 
   useEffect(() => {
-    fetch("https://run.mocky.io/v3/994862f1-a497-4a62-8200-150b89a37070")
+    fetch("https://sheet.best/api/sheets/c5330ac8-a26c-4991-aaeb-cca45f148d48")
       .then(res => res.json())
       .then(
         (result) => {

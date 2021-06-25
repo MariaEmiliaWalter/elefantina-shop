@@ -1,24 +1,41 @@
 import React, { useState, useEffect} from 'react';
-import ItemDetails from '../components/itemDetails/itemDetails';
+import {
+    Segment, Image, Grid, Divider
+} from "semantic-ui-react";
 
 
 function ItemDetailsContainer({ match }) {
-    let id = match.params.id;
+    let itemID = match.params.id;
     const [details, setDetail] = useState([]);
 
     useEffect(() => {
-        fetch(`https://run.mocky.io/v3/994862f1-a497-4a62-8200-150b89a37070${id}`)
+        fetch(`https://sheet.best/api/sheets/c5330ac8-a26c-4991-aaeb-cca45f148d48${itemID}`)
             .then(res => res.json())
             .then(
                 result => {
+                    console.log(result);
                     setDetail(result);
                 }
             );
-    }, [id]);
+    }, [itemID]);
 
     return (
         <div>
-            <ItemDetails items={details}/>
+            {details.map((d)=> { 
+         <Segment>
+                <Grid columns={2} relaxed='very'>
+                    <Grid.Column>
+                        <Image src={d.imagen}/>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <h1>{d.title}</h1>
+                        <Grid.arguments>{d.description}</Grid.arguments>
+                    </Grid.Column>
+                </Grid>
+
+                <Divider vertical></Divider>
+            </Segment> 
+            })}  
         </div>
     )
 }

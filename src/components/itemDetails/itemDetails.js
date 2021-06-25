@@ -10,10 +10,10 @@ function ItemDetails({items}) {
             <Segment>
                 <Grid columns={2} relaxed='very'>
                     <Grid.Column>
-                        <Image src={items.imagen} />
+                        <Image/>
                     </Grid.Column>
                     <Grid.Column>
-                        <h1>hola</h1>
+                        <h1>{items.title}</h1>
                         <Grid.arguments>jfkjsdfklsdfj</Grid.arguments>
                     </Grid.Column>
                 </Grid>

@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { Label, Button } from "semantic-ui-react";
+import { Label, Button, Grid,Card } from "semantic-ui-react";
 
 function ItemCount({ stockInicial }) {
 
@@ -32,20 +32,28 @@ function ItemCount({ stockInicial }) {
 
 
   return (
-    <div>
-      <div id="stockDisponible" > Stock disponible: {stock} </div>
-      <Button
+      <Grid>
+     <Grid.Column>
+       <Card>
+         <Card.Content>
+           <Button
+        circular
         basic
         icon="minus"
         onClick={RestarItems}
       ></Button>
-      <Label className="ui counter" content={counter}></Label>
-      <Button
+            <Label className="ui counter">{counter}</Label>
+       <Button
+        circular
         basic
         icon="plus"
         onClick={sumarItems}
-      ></Button>
-    </div>
+      ></Button></Card.Content>
+     
+       <Card.Meta id="stockDisponible" > Stock disponible: {stock} </Card.Meta>
+       </Card>
+    </Grid.Column>
+    </Grid>
   );
 }
 

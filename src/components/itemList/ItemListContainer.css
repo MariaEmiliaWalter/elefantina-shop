@@ -4,28 +4,53 @@
   } 
 
 .img_style{
-  width: 100%;
+  width: 100% !important;
 }
 
 
+.ui.inverted.grey.button{
+  font-size: 120% !important;
+color:rgb(207, 166, 150) !important;
+box-shadow: 0 0 0 2px rgb(255, 255, 255) inset !important;
+}
+
+.ui.inverted.grey.button:hover{
+  background-color:rgb(207, 166, 150) !important;
+  color: white !important;
+}
 
 .BtnBag{
-margin-Bottom: 10% !important;
+  display: flex;
+  align-self: center;
+  color: grey;
+}
+
+.BtnBag:hover{
+color: rgb(223, 52, 52) !important;
+background-color: white !important;
+box-shadow: 0 0 0 2px rgb(223, 52, 52) inset !important;
 }
 
 
-/* Mobile */
+/* Mobile 
 @media only screen and (max-width: 767px) {
   [class*="displayGroup"] {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+    padding-left: 1% !important;
+    padding-right: 1% !important;
   }
-}
+}*/
 
-/* ipad */
+/* ipad 
 @media (min-width: 768px) and (max-width: 1200px) {
   [class*="displayGroup"] {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
   }
+}*/
+
+.ItemsGrid{
+  display: inline-grid !important;
+  grid-column-gap: 1rem !important;
+  grid-row-gap: 1rem !important;
+  justify-content: flex-start !important;
 }

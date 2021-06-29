@@ -1,13 +1,18 @@
 import React from 'react';
 import Section from "../components/Section/Section";
-import img from "../assets/niños.jpg"
-//import img from "https://image.freepik.com/foto-gratis/pancarta-ninos-sorprendidos-mirando-al-borde_155003-13452.jpg"
+import imgHome from '../assets/sectionHome.png';
 
 function Home() {
+
+    
+const SectionHomeText = () => {
+
+}
+
+
     return (
         <div>
-            <h1>HOME</h1>
-           <Section prop= {img}/>
+            <Section img={imgHome} title="Bienvenidxs a Elefantina" text="Productos destacados"/>
         </div>
     )
 }

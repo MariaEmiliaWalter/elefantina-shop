@@ -1,66 +1,50 @@
-import React, { useState} from "react";
+import React from "react";
 import {
-  Card, Image, Button
+  Card, Image, Button,Icon
 } from "semantic-ui-react";
 import "./ItemListContainer.css";
-import ItemCount from "./itemCount";
 import {Link} from "react-router-dom";
 
 
 function ItemCard({ items }) {
-  const [isTextChanged, setIsTextChanged] = useState(`Más información`);
+  // const [isTextChanged, setIsTextChanged] = useState(`Más información`);
 
 
-  const handleClick = () => {
-    setTimeout(() => {
-      setIsTextChanged()
-    }, 1000);
-  };
+  // const handleClick = () => {
+  //   setTimeout(() => {
+  //     setIsTextChanged()
+  //   }, 1000);
+  // };
 
   return (
     <div >
-      <Card.Group centered className="ui stackable cards displayGroup">
-        <Card key={items.id} className="ItemCard card">
-          <div>
+      <Card raised key={items.id} className="ItemCard" >
+        <Card.Content>
             <Image
               src={items.imagen}
               ui={false}
               className="img_style"
             />
-            <a href="#" className="ui left corner label">
-              <i className="heart icon"></i>
-            </a>
+          <Button circular icon="heart" className="BtnBag ui middle ">
+            </Button> 
 
-            <a href="#" className="ui center">
-              <Button
-                circular
-                icon="shopping bag"
-                basic
-                color="grey"
-                type="submit"
-                className="BtnBag"
-              ></Button>
-            </a>
-          </div>
+        </Card.Content>
+
           <Card.Content>
             <Card.Header>{items.title}</Card.Header>
-            <Card.Meta>$ {items.price}</Card.Meta>
-            <Card.Description>{items.description}</Card.Description>
+          <Card.Meta as="a">$ {items.price}</Card.Meta>
           </Card.Content>
-          <Card.Content extra>
-            <ItemCount stockInicial={items.stock} />
+          
+          <Card.Content id="ContentHide">
             <Link to={`/details/${items.id}`}><Button
+              animated='fade'
               key={items.id}
-              inverted
-              color="brown"
+              inverted color="grey"
               type="submit"
-              className="ui button"
-              content={isTextChanged ? `Más información` : `Más info`}
-              onClick={handleClick}
-            ></Button></Link>
+          > <Button.Content hidden >¡Lo llevo!</Button.Content>
+            <Button.Content visible ><Icon name='shopping bag' /></Button.Content></Button></Link>
           </Card.Content>
         </Card>
-      </Card.Group>
     </div>
   );
 }

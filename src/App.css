@@ -5,3 +5,10 @@
 .Body{
   margin-top: 2rem;
 }
+
+.Details{
+  margin-left: 3rem !important;
+  margin-right: 2rem !important;
+  margin-top: 2rem !important;
+  text-align: left !important;
+}

@@ -37,14 +37,19 @@ useEffect(() => {
             )}
         </Segment>
     </GridColumn>
-        <Grid.Column width={13}>{
+        <Grid.Column width={13}>
+          
+          <Grid stackable >
+            {
               data.map((item) => (
-                <Grid stackable >
+                
                     <Grid.Column computer={4} tablet={8} mobile={16}>
                     <ItemCard items={item} key={item.id} />
                       </Grid.Column>
-                </Grid>
-        ))}
+              
+        ))
+        }  
+        </Grid>
         </Grid.Column>
     </Grid.Row>
         </Grid>

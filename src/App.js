@@ -9,6 +9,7 @@ import Home from "./Views/Home"
 import Nosotros from "./Views/Nosotros"
 import Contact from "./Views/Contact"
 import Details from "./Views/Details";
+import Cart from "./Views/Cart";
 //Components
 import Header from "./components/Header/Header";
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/nosotros" component={Nosotros} ></Route>
           <Route path="/contacto" component={Contact} ></Route>
             <Route path="/details/:id" component={Details} ></Route>
+              <Route path="/cart" component={Cart}></Route>
           </Switch>
         </div>
         </CartProvider>

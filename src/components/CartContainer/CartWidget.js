@@ -5,17 +5,41 @@ Button,
   Menu,
   Sidebar} from "semantic-ui-react";
 import "../Header/Header.css";
-import Cart from './Cart';
+import { useCart } from "react-use-cart";
+import { Link } from 'react-router-dom';
+
+
 
 function CartWidget() {
 
 const [visible, setVisible] = useState(false);
+const [active, setActive] = useState(false);
 
-    const openSidebar = () => {
+const openSidebar = () => {
       setVisible(!visible);
     };
 
-    return (
+
+const onHandleChange = () => {
+  if (!isEmpty) {
+    setActive(!active);
+  }
+};
+
+let CartEmpty = <h3> El carrito aún no tiene productos</h3>;
+
+const {
+    isEmpty,
+    totalUniqueItems,
+    items,
+    updateItemQuantity,
+    removeItem,
+    cartTotal,
+    emptyCart,
+    totalItems,
+  } = useCart();
+
+return (
       <div>
           <Button
             floated="right"
@@ -41,8 +65,31 @@ const [visible, setVisible] = useState(false);
           >
             <Menu.Item>
               <div>Carrito de compras</div>
-            </Menu.Item>
-                <Cart/>
+            </Menu.Item> 
+        <Grid.Row>
+          {(isEmpty)
+            ? <h3> El carrito aún no tiene productos</h3>
+            : <div>
+              <h1> Cart ({totalUniqueItems})</h1>
+              <ul>
+                {items.map((item) => {
+                  return (
+                    <li key={item.id}>
+                      {item.quantity} x {item.title} &mdash;
+                      <button onClick={() => removeItem(item.id)}>&times;</button>
+                    </li>
+                  )
+                })}
+
+              </ul>
+              <Link to="/cart" display={active ? "visible" : "hidden"}><Button onChange={onHandleChange}>
+                Terminar mi compra
+              </Button>
+              </Link>
+            </div>
+
+          }
+            </Grid.Row>
           </Sidebar>
         </Grid.Column>
       </div>

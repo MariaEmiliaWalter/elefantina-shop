@@ -17,9 +17,10 @@ import Header from "./components/Header/Header";
 function App() {
   return (
     <Router>
-    <div className="App">
+    <div className="App"> 
+           <CartProvider>
+
         <Header/>
-        <CartProvider>
         <div className="Body">
           <Switch>
           <Route path="/" exact component={Home} ></Route>

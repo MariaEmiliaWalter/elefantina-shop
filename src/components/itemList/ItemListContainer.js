@@ -2,16 +2,15 @@ import React, { useState, useEffect } from 'react';
 import "./ItemListContainer.css";
 import ItemCard from './ItemCard';
 import { Grid, GridColumn,Segment,Header} from "semantic-ui-react";
-import items from "../../assets/db.json";
+import items from "../../assets/db";
 
 
 function ItemListContainer() {
 
   const [data, setData] = useState([]);
-  console.log(data);
 
 useEffect(() => {
-  setData(items)
+  setData(items.itemsData)
 }, []);
 
 
@@ -19,7 +18,7 @@ useEffect(() => {
     
     <Grid className="displayGroup" >
       <Grid.Row>
-      <GridColumn only='computer tablet' width={3} style={{height: "100%"}} >
+      <GridColumn only='computer' width={3} style={{height: "100%"}} >
       <Segment>
            hacer submenu filtro
       </Segment>
@@ -28,7 +27,7 @@ useEffect(() => {
             { data.map((item) => {
               if (item.OnSale === "true") {
                 return (
-                <Grid stackable >
+                  <Grid stackable >
                   <Grid.Column>
                     <ItemCard items={item} key={item.id} />
                   </Grid.Column>
@@ -37,16 +36,15 @@ useEffect(() => {
             )}
         </Segment>
     </GridColumn>
+        
         <Grid.Column width={13}>
           
           <Grid stackable >
             {
               data.map((item) => (
-                
-                    <Grid.Column computer={4} tablet={8} mobile={16}>
+               <Grid.Column computer={4} tablet={4} mobile={8}>
                     <ItemCard items={item} key={item.id} />
                       </Grid.Column>
-              
         ))
         }  
         </Grid>

@@ -1,8 +1,9 @@
-[
+const items = {
+    itemsData:[
                 {
                     "id": "1",
                     "imagen": "https://www.cestaland.com/2533-large_default/muselina-aden-anais-musy-70x70cm-algodon-comprar-gasa-bebe.jpg",
-                    "title": "Muselina",
+                    "title": "Muselina estampada",
                     "description": "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad",
                     "price": "345",
                     "color": "Blanco, estampa aleatoria",
@@ -144,3 +145,6 @@
                     "OnSale": "false"
                 }
     ]
+};
+
+export default items;

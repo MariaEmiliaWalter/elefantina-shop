@@ -1,20 +1,27 @@
 import React from "react";
 import {
   Card, Image, Button,Icon
-} from "semantic-ui-react";
-import "./ItemListContainer.css";
-import {Link} from "react-router-dom";
+} from 'semantic-ui-react';
+import './ItemListContainer.css';
+import {Link} from 'react-router-dom';
 
 
 function ItemCard({ items }) {
-  // const [isTextChanged, setIsTextChanged] = useState(`Más información`);
 
+//  const [IsVisible, setIsVisible ] = useState(false);
 
-  // const handleClick = () => {
-  //   setTimeout(() => {
-  //     setIsTextChanged()
-  //   }, 1000);
-  // };
+//   const changeVisibility = () => {
+// setIsVisible(!IsVisible)
+// };
+ 
+
+  // setTimeout(function () {
+  //   $(".visible").fadeOut(1500);
+  // }, 3000);
+
+  // setTimeout(function () {
+  //   $(".hidden").fadeIn(1500);
+  // }, 6000);
 
   return (
     <div >
@@ -30,17 +37,17 @@ function ItemCard({ items }) {
 
         </Card.Content>
 
-          <Card.Content>
+        <Card.Content>
             <Card.Header>{items.title}</Card.Header>
           <Card.Meta as="a">$ {items.price}</Card.Meta>
           </Card.Content>
           
-          <Card.Content id="ContentHide">
+        <Card.Content >
             <Link to={`/details/${items.id}`}><Button
-              animated='fade'
+            animated='fade' duration='1000'
               key={items.id}
-              inverted color="grey"
               type="submit"
+            color="grey"   
           > <Button.Content hidden >¡Lo llevo!</Button.Content>
             <Button.Content visible ><Icon name='shopping bag' /></Button.Content></Button></Link>
           </Card.Content>
@@ -50,3 +57,6 @@ function ItemCard({ items }) {
 }
 
 export default ItemCard;
+
+// onMouseOver={changeVisibility}
+// className={IsVisible ? "visible" : "hidden"} 

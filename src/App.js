@@ -2,6 +2,7 @@ import './App.css';
 
 //REACT ROUTER DOM
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { CartProvider } from 'react-use-cart';
 // VIEWS
 import Productos from "./Views/Productos"
 import Home from "./Views/Home"
@@ -12,11 +13,13 @@ import Details from "./Views/Details";
 import Header from "./components/Header/Header";
 
 
+
 function App() {
   return (
     <Router>
     <div className="App">
         <Header/>
+        <CartProvider>
         <div className="Body">
           <Switch>
           <Route path="/" exact component={Home} ></Route>
@@ -26,6 +29,7 @@ function App() {
             <Route path="/details/:id" component={Details} ></Route>
           </Switch>
         </div>
+        </CartProvider>
     </div>
     </Router>
   );

@@ -4,13 +4,10 @@ Button,
   Grid,
   Menu,
   Sidebar} from "semantic-ui-react";
-import "./Header.css";
-//import ItemCount from '../itemList/itemCount';
+import "../Header/Header.css";
+import Cart from './Cart';
 
 function CartWidget() {
-
-  // faltan: inclusión de cards con datos de productos añadidos desde el contador + añadir al carrito 
-  //  Extra: Checkout + router hacia esto.
 
 const [visible, setVisible] = useState(false);
 
@@ -45,6 +42,7 @@ const [visible, setVisible] = useState(false);
             <Menu.Item>
               <div>Carrito de compras</div>
             </Menu.Item>
+                <Cart/>
           </Sidebar>
         </Grid.Column>
       </div>

@@ -16,7 +16,7 @@ Button,
 } from 'semantic-ui-react'
 
 //Components
-import CartWidget from "./CartWidget";
+import CartWidget from "../CartContainer/CartWidget";
 
 function SideNavbar() {
     const [visible, setVisible] = useState(false);
@@ -44,7 +44,8 @@ function SideNavbar() {
              />
            </Container>
            <Container textAlign="center">
-             <Image src={logo} size="tiny" float="right" />
+             <Link to={`/`}><Image src={logo} size="tiny" float="right" />
+           </Link>
            </Container>
            <CartWidget />
          </Grid.Column>

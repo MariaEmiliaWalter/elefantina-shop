@@ -1,4 +1,5 @@
 .displayGroup{
+    justify-content: center !important;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
   } 
@@ -8,16 +9,22 @@
 }
 
 
-.ui.inverted.grey.button{
-  font-size: 120% !important;
-color:rgb(207, 166, 150) !important;
-box-shadow: 0 0 0 2px rgb(255, 255, 255) inset !important;
+#CartButton{
+  box-shadow: 0 0 0 2px rgb(207, 166, 150) inset;
+  font-size: 120% ;
+color:rgb(207, 166, 150) ;
+background-color: white;
 }
 
-.ui.inverted.grey.button:hover{
-  background-color:rgb(207, 166, 150) !important;
-  color: white !important;
+#CartButton:hover{
+  background-color:rgb(207, 166, 150) ;
+  color: white;
 }
+
+/* #CartButtonChange .visible::after{
+color:rgb(207, 166, 150) ;
+background-color: white;
+} */
 
 .BtnBag{
   display: flex;
@@ -30,6 +37,21 @@ color: rgb(223, 52, 52) !important;
 background-color: white !important;
 box-shadow: 0 0 0 2px rgb(223, 52, 52) inset !important;
 }
+
+.hidden{
+  display: none;
+}
+
+/* .fadeOut{
+     opacity:0;
+     transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s;
+
+}
+.fadeIn{
+     opacity:1;
+     transition: width 0.5s, height 0.5s, opacity 0.5s 0.5s;
+
+} */
 
 
 /* Mobile 

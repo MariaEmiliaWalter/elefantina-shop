@@ -12,10 +12,15 @@
 }
 
 
-/* .btn{
-    background-color:rgb(226, 182, 133) !important;
-    color: white !important;
-} */
+.ui.icon.menu .item>.icon:hover{
+  color:rgb(235, 198, 163);
+}
+
+.ui.icon.menu .item{
+  font-weight: 500 !important;
+  color:rgb(80, 80, 80) !important;
+}
+
 
 
 
@@ -30,5 +35,9 @@
   [class*="or lower hidden"]
   */
     display: none !important;
+    
   }
+    .ui.icon.menu .item>.icon{
+    color:rgb(235, 198, 163) !important;
+    }
 }

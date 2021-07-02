@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    Segment,Image,Header,Container
+    Segment,Image,Header
 } from "semantic-ui-react";
 
 function Section({img, title, text}) {

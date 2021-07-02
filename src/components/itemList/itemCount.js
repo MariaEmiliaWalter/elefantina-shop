@@ -1,12 +1,12 @@
 import { React, useState } from "react";
 import { Label, Button, Grid,Card } from "semantic-ui-react";
+import { useCart } from "react-use-cart";
 
-function ItemCount({ stockInicial }) {
-
-
+function ItemCount({Product}) {
+  let StockInicial = Product.stock;
+  const { addItem } = useCart();
   const [counter, setCounter] = useState(0);
-  const [stock, setStock] = useState(Number(stockInicial));
-
+  const [stock, setStock] = useState(Number(StockInicial));
 
   const sumarItems = () => {
     if ((stock >= counter) || (stock >= 1)) {
@@ -21,6 +21,8 @@ function ItemCount({ stockInicial }) {
       setStock(stock + 1)
     }
   };
+
+  let addQuantity= Number(counter);
 
   /* const sinStock = () => {
   if ( stock = 0){
@@ -44,13 +46,19 @@ function ItemCount({ stockInicial }) {
       ></Button>
             <Label className="ui counter">{counter}</Label>
        <Button
+        
         circular
         basic
         icon="plus"
         onClick={sumarItems}
       ></Button></Card.Content>
      
-       <Card.Meta id="stockDisponible" > Stock disponible: {stock} </Card.Meta>
+       <Card.Meta id="stockDisponible"> Stock disponible: {stock} </Card.Meta>
+
+          <Button id="CartButton"
+            type="submit"
+            onClick={() => addItem(Product, addQuantity) }
+          >Añadir al carrito</Button>
        </Card>
     </Grid.Column>
     </Grid>

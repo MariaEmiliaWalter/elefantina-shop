@@ -5,9 +5,9 @@ import imgHome from '../assets/sectionHome.png';
 function Home() {
 
     
-const SectionHomeText = () => {
+// const SectionHomeText = () => {
 
-}
+// }
 
 
     return (

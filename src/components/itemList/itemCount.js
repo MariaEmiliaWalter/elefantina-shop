@@ -7,23 +7,27 @@ function ItemCount({Product}) {
   const { addItem } = useCart();
   const [counter, setCounter] = useState(0);
   const [stock, setStock] = useState(Number(StockInicial));
+  const [Quantity, setQuantity] = useState(0);
 
   const sumarItems = () => {
     if ((stock >= counter) || (stock >= 1)) {
       setCounter(counter + 1);
-      setStock(stock - 1)
+      setStock(stock - 1);
+      setQuantity(counter)
     }
   };
 
   const RestarItems = () => {
     if ((counter >= stock) || (counter >= 1)) {
       setCounter(counter - 1);
-      setStock(stock + 1)
+      setStock(stock + 1);
+      setQuantity(counter)
     }
   };
 
-  let addQuantity= Number(counter);
+  let addQuantity = Number(Quantity);
 
+ 
   /* const sinStock = () => {
   if ( stock = 0){
     document.getElementsByClassName("stockDisponible").textContent = "No hay más stock disponible"
@@ -57,7 +61,12 @@ function ItemCount({Product}) {
 
           <Button id="CartButton"
             type="submit"
-            onClick={() => addItem(Product, addQuantity) }
+            onClick={() => { 
+              addItem(Product, addQuantity);
+              setStock((stock) - (addQuantity));
+              setCounter(0);
+              } 
+            }
           >Añadir al carrito</Button>
        </Card>
     </Grid.Column>

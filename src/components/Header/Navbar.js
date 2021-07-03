@@ -10,20 +10,41 @@ Icon,
 Button,
   Grid,
   Menu,
-  Sidebar,
-  Input,
+  Sidebar, Input, Form,
   Image,
 } from 'semantic-ui-react'
 
 //Components
 import CartWidget from "../CartContainer/CartWidget";
+import items from '../../assets/db';
 
 function SideNavbar() {
     const [visible, setVisible] = useState(false);
-
-    const openSidebar = () => {
+  const [inputText, setInputText] = useState('')
+  // const [ItemData, setItemData] = useState({})
+    
+  const openSidebar = () => {
       setVisible(!visible);
     };
+
+
+    const onHandleChange = (e) =>{
+      setInputText(e.target.value);
+    };
+
+    const onHandleSubmit = (e) =>{
+      e.preventDefault();
+      //sanitizo variable
+      const userInput = inputText.toLocaleLowerCase().replace(/ /g, '');
+      //filter
+      // if (userInput) {
+      //   let data = items.filter((item) => item.title === userInput || item.description === userInput);
+      //   setItemData(data);
+      //   console.log("datos filtrados",ItemData);
+      // };
+      // setInputText('');
+    };
+
 
      return (
        <Grid columns={1} className="ui top menu">
@@ -38,10 +59,16 @@ function SideNavbar() {
                onClick={openSidebar}
              ></Button>
              <Input
+               type='text'
+              value={inputText}
+              onChange={onHandleChange}
                className="mobile hidden"
-               icon="search"
                placeholder="Buscar..."
-             />
+               action
+             ><input />
+               <Button icon="search" type='submit' onClick= {onHandleSubmit}></Button>
+             </Input>
+
            </Container>
            <Container textAlign="center">
              <Link to={`/`}><Image src={logo} size="tiny" float="right" />

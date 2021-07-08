@@ -12,15 +12,16 @@ import Details from "./Views/Details";
 import Cart from "./Views/Cart";
 //Components
 import Header from "./components/Header/Header";
-
+//Provider
+import {ItemsProvider} from "./components/Context/ItemsContext";
 
 
 function App() {
   return (
     <Router>
     <div className="App"> 
-           <CartProvider>
-
+      <CartProvider>
+        <ItemsProvider>
         <Header/>
         <div className="Body">
           <Switch>
@@ -32,7 +33,8 @@ function App() {
               <Route path="/cart" component={Cart}></Route>
           </Switch>
         </div>
-        </CartProvider>
+      </ItemsProvider>
+    </CartProvider>
     </div>
     </Router>
   );

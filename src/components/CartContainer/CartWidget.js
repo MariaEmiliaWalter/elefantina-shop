@@ -3,6 +3,8 @@ import {
 Button,
   Grid,
   Menu,
+  Icon,
+  Label,
   Sidebar} from "semantic-ui-react";
 import "../Header/Header.css";
 import { useCart } from "react-use-cart";
@@ -26,7 +28,7 @@ const onHandleChange = () => {
   }
 };
 
-let CartEmpty = <h3> El carrito aún no tiene productos</h3>;
+
 
 const {
     isEmpty,
@@ -41,16 +43,24 @@ const {
 
 return (
       <div>
+    <Menu.Item as='a'>
           <Button
+            compact
             floated="right"
             style={{ fontSize: "100%" }}
             basic
             color="grey"
             circular
-            icon="shopping bag"
             visible={visible}
-            onClick={openSidebar}
-          ></Button>     
+            onClick={openSidebar}>
+              <Icon name="shopping bag"/>
+              <Label circular color='teal' floating>
+                 {totalUniqueItems}
+              </Label>
+            </Button>
+      </Menu.Item>
+
+
         <Grid.Column>
           <Sidebar
             direction="right"

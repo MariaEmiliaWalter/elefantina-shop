@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import "./ItemListContainer.css";
 import ItemCard from './ItemCard';
 import { Grid, GridColumn,Segment,Header} from "semantic-ui-react";
-import items from "../../assets/db";
+//import items from "../../assets/db";
+import {ItemsContext} from '../Context/ItemsContext';
 
 
 function ItemListContainer() {
+  const [Items, setItems] = useContext(ItemsContext);
 
-  const [data, setData] = useState([]);
+//   const [data, setData] = useState([]);
 
-useEffect(() => {
-  setData(items.itemsData)
-}, []);
+// useEffect(() => {
+//   setData(items.itemsData)
+// }, []);
 
 
   return (
@@ -24,7 +26,7 @@ useEffect(() => {
       </Segment>
           <Segment>
             <Header>OFERTAS</Header>
-            { data.map((item) => {
+            {Items.map((item) => {
               if (item.OnSale === "true") {
                 return (
                   <Grid stackable >
@@ -41,7 +43,7 @@ useEffect(() => {
           
           <Grid stackable >
             {
-              data.map((item) => (
+              Items.map((item) => (
                <Grid.Column computer={4} tablet={4} mobile={8}>
                     <ItemCard items={item} key={item.id} />
                       </Grid.Column>

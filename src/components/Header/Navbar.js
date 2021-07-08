@@ -10,17 +10,18 @@ Icon,
 Button,
   Grid,
   Menu,
-  Sidebar, Input, Form,
+  Sidebar, Input,
   Image,
 } from 'semantic-ui-react'
 
 //Components
 import CartWidget from "../CartContainer/CartWidget";
-import items from '../../assets/db';
+
 
 function SideNavbar() {
     const [visible, setVisible] = useState(false);
   const [inputText, setInputText] = useState('')
+
   // const [ItemData, setItemData] = useState({})
     
   const openSidebar = () => {

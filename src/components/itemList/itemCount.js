@@ -1,6 +1,9 @@
 import { React, useState } from "react";
 import { Label, Button, Grid,Card } from "semantic-ui-react";
 import { useCart } from "react-use-cart";
+import { ItemsContext } from '../Context/ItemsContext';
+
+
 
 function ItemCount({Product}) {
   let StockInicial = Product.stock;
@@ -8,22 +11,24 @@ function ItemCount({Product}) {
   const [counter, setCounter] = useState(0);
   const [stock, setStock] = useState(Number(StockInicial));
   const [Quantity, setQuantity] = useState(0);
+  const [Active, setActive] = useState(true);
 
   const sumarItems = () => {
     if ((stock >= counter) || (stock >= 1)) {
       setCounter(counter + 1);
+      setQuantity(counter);
       setStock(stock - 1);
-      setQuantity(counter)
-    }
+     };
   };
 
   const RestarItems = () => {
     if ((counter >= stock) || (counter >= 1)) {
       setCounter(counter - 1);
+      setQuantity(counter);
       setStock(stock + 1);
-      setQuantity(counter)
-    }
+      };
   };
+
 
   let addQuantity = Number(Quantity);
 
@@ -67,7 +72,12 @@ function ItemCount({Product}) {
               setCounter(0);
               } 
             }
-          >Añadir al carrito</Button>
+            className={Active ? "active" : "disabled" }
+          > { Active ? 
+            "Añadir al carrito" 
+            : "No hay más stock"
+
+          }</Button>
        </Card>
     </Grid.Column>
     </Grid>

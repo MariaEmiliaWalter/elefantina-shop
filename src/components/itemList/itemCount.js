@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import { Label, Button, Grid,Card } from "semantic-ui-react";
 import { useCart } from "react-use-cart";
-import { ItemsContext } from '../Context/ItemsContext';
+
 
 
 

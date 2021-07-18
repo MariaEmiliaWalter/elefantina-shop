@@ -25,12 +25,12 @@ function App() {
         <Header/>
         <div className="Body">
           <Switch>
-          <Route path="/" exact component={Home} ></Route>
-          <Route path="/productos" component={Productos} ></Route>
-          <Route path="/nosotros" component={Nosotros} ></Route>
-          <Route path="/contacto" component={Contact} ></Route>
+            <Route path="/" exact component={Home} ></Route>
+            <Route path="/productos" component={Productos} ></Route>
+            <Route path="/nosotros" component={Nosotros} ></Route>
+            <Route path="/contacto" component={Contact} ></Route>
             <Route path="/details/:id" component={Details} ></Route>
-              <Route path="/cart" component={Cart}></Route>
+            <Route path="/cart" component={Cart}></Route>
           </Switch>
         </div>
       </ItemsProvider>

@@ -2,18 +2,13 @@ import React, { useState, useEffect,useContext } from 'react';
 import "./ItemListContainer.css";
 import ItemCard from './ItemCard';
 import { Grid, GridColumn,Segment,Header} from "semantic-ui-react";
-//import items from "../../assets/db";
+
 import {ItemsContext} from '../Context/ItemsContext';
+
 
 
 function ItemListContainer() {
   const [Items, setItems] = useContext(ItemsContext);
-
-//   const [data, setData] = useState([]);
-
-// useEffect(() => {
-//   setData(items.itemsData)
-// }, []);
 
 
   return (
@@ -45,8 +40,8 @@ function ItemListContainer() {
             {
               Items.map((item) => (
                <Grid.Column computer={4} tablet={4} mobile={8}>
-                    <ItemCard items={item} key={item.id} />
-                      </Grid.Column>
+                  <ItemCard items={item} key={item.id} />
+                </Grid.Column>
         ))
         }  
         </Grid>
@@ -58,5 +53,3 @@ function ItemListContainer() {
 
 export default ItemListContainer;
 
-
-//computer = { 4} tablet = { 8} mobile = { 16} width = { 13}       <Card.Group centered className="ui stackable cards displayGroup">

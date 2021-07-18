@@ -10,7 +10,8 @@ Icon,
 Button,
   Grid,
   Menu,
-  Sidebar, Input,
+  Sidebar, 
+  Input,
   Image,
 } from 'semantic-ui-react'
 

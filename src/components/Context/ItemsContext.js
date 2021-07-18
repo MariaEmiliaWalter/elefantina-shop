@@ -1,162 +1,51 @@
-import React, {useState, createContext} from 'react'
+import React, {useState, createContext, useEffect} from 'react';
+import { db } from './Firebase';
+import items from "../../assets/db";
+
 
 //Contexto
 export const ItemsContext = createContext();
 
+// const Productos = () => {
+//     items.map((item) => {
+//         console.log ("ITEMS", item)
+//         db.collection('Productos').doc(item.id).set(item)
+//     })
+// };
+
 //Componente provider
 export const ItemsProvider =  (props) => {
-    const [Items, setItems] = useState(
-        [
-            {
-                "id": "1",
-                "imagen": "https://www.cestaland.com/2533-large_default/muselina-aden-anais-musy-70x70cm-algodon-comprar-gasa-bebe.jpg",
-                "title": "Muselina estampada",
-                "description": "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad",
-                "price": "345",
-                "color": "Blanco, estampa aleatoria",
-                "stock": "200",
-                "Categoria": "Bebes",
-                "Sub-categoria": "Accesorios",
-                "OnSale": "false"
-            },
-            {
-                "id": "2",
-                "imagen": "https://www.cestaland.com/2533-large_default/muselina-aden-anais-musy-70x70cm-algodon-comprar-gasa-bebe.jpg",
-                "title": "Body",
-                "description": "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad",
-                "price": "345",
-                "color": "Blanco, estampa aleatoria",
-                "stock": "2",
-                "Categoria": "Bebes",
-                "Sub-categoria": "Bodys",
-                "OnSale": "true"
-            },
-            {
-                "id": "3",
-                "imagen": "https://www.cestaland.com/2533-large_default/muselina-aden-anais-musy-70x70cm-algodon-comprar-gasa-bebe.jpg",
-                "title": "Pantalon",
-                "description": "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad",
-                "price": "345",
-                "color": "Blanco, estampa aleatoria",
-                "stock": "24",
-                "Categoria": "Bebes",
-                "Sub-categoria": "Accesorios",
-                "OnSale": "false"
-            },
-            {
-                "id": "4",
-                "imagen": "https://www.cestaland.com/2533-large_default/muselina-aden-anais-musy-70x70cm-algodon-comprar-gasa-bebe.jpg",
-                "title": "Muselina",
-                "description": "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad",
-                "price": "345",
-                "color": "Blanco, estampa aleatoria",
-                "stock": "20",
-                "Categoria": "Bebes",
-                "Sub-categoria": "Accesorios",
-                "OnSale": "false"
-            },
-            {
-                "id": "5",
-                "imagen": "https://www.cestaland.com/2533-large_default/muselina-aden-anais-musy-70x70cm-algodon-comprar-gasa-bebe.jpg",
-                "title": "Muselina",
-                "description": "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad",
-                "price": "345",
-                "color": "Blanco, estampa aleatoria",
-                "stock": "100",
-                "Categoria": "Bebes",
-                "Sub-categoria": "Accesorios",
-                "OnSale": "false"
-            },
-            {
-                "id": "6",
-                "imagen": "https://www.chicadecanela.com/787-home_default/pinocchio-muselina-bebe.jpg",
-                "title": "Muselina",
-                "description": "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad",
-                "price": "345",
-                "color": "Blanco, estampa aleatoria",
-                "stock": "100",
-                "Categoria": "Bebes",
-                "Sub-categoria": "Accesorios",
-                "OnSale": "false"
-            },
-            {
-                "id": "7",
-                "imagen": "https://www.chicadecanela.com/787-home_default/pinocchio-muselina-bebe.jpg",
-                "title": "Muselina",
-                "description": "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad",
-                "price": "345",
-                "color": "Blanco, estampa aleatoria",
-                "stock": "100",
-                "Categoria": "Bebes",
-                "Sub-categoria": "Accesorios",
-                "OnSale": "false"
-            },
-            {
-                "id": "8",
-                "imagen": "https://www.chicadecanela.com/787-home_default/pinocchio-muselina-bebe.jpg",
-                "title": "Muselina",
-                "description": "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad",
-                "price": "345",
-                "color": "Blanco, estampa aleatoria",
-                "stock": "100",
-                "Categoria": "Bebes",
-                "Sub-categoria": "Accesorios",
-                "OnSale": "false"
-            },
-            {
-                "id": "9",
-                "imagen": "https://www.cestaland.com/2533-large_default/muselina-aden-anais-musy-70x70cm-algodon-comprar-gasa-bebe.jpg",
-                "title": "Muselina",
-                "description": "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad",
-                "price": "345",
-                "color": "Blanco, estampa aleatoria",
-                "stock": "100",
-                "Categoria": "Bebes",
-                "Sub-categoria": "Accesorios",
-                "OnSale": "false"
-            },
-            {
-                "id": "10",
-                "imagen": "https://www.chicadecanela.com/787-home_default/pinocchio-muselina-bebe.jpg",
-                "title": "Muselina",
-                "description": "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad",
-                "price": "345",
-                "color": "Blanco, estampa aleatoria",
-                "stock": "100",
-                "Categoria": "Bebes",
-                "Sub-categoria": "Accesorios",
-                "OnSale": "false"
-            },
-            {
-                "id": "11",
-                "imagen": "https://www.cestaland.com/2533-large_default/muselina-aden-anais-musy-70x70cm-algodon-comprar-gasa-bebe.jpg",
-                "title": "Muselina",
-                "description": "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad",
-                "price": "345",
-                "color": "Blanco, estampa aleatoria",
-                "stock": "100",
-                "Categoria": "Bebes",
-                "Sub-categoria": "Accesorios",
-                "OnSale": "false"
-            },
-            {
-                "id": "12",
-                "imagen": "https://www.chicadecanela.com/787-home_default/pinocchio-muselina-bebe.jpg",
-                "title": "Muselina",
-                "description": "Mantas de bebe con diseño unisex, doble capa de algodón de primera calidad",
-                "price": "345",
-                "color": "Blanco, estampa aleatoria",
-                "stock": "100",
-                "Categoria": "Bebes",
-                "Sub-categoria": "Accesorios",
-                "OnSale": "false"
-            }
-        ]);
+    
+    const [products, setProducts] = useState([]);
+
+
+    const getProducts = () => {
+        // QuerySnapshot es el nombre de la respuesta que nos da Firebase
+        db.collection('Productos').onSnapshot((querySnapshot) => {
+            const docs = [];
+            querySnapshot.forEach((doc) => {
+                //console.log(doc.data());
+                // console.log(doc.id);
+                docs.push({ ...doc.data(), id: doc.id });
+                // Cada vez que nos traigamos todos los datos, vamos a combinar c/u de esos objetos con su id en un nuevo objeto
+                //console.log(docs);
+            });
+            setProducts(docs);
+        });
+    };
+
+    // Al poner el array vacio se va a ejecutar la primera vez que cargue el componente
+    useEffect(() => {
+        getProducts();
+    }, []);
+
 
         return (
-            <ItemsContext.Provider value={[Items,setItems]} >
+            <ItemsContext.Provider value={[products, setProducts]} >
                 {props.children}
             </ItemsContext.Provider>
         )
 
 };
+
+

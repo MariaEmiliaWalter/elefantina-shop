@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useContext} from 'react';
 import "../App.css";
 import ItemDetail from '../components/itemList/ItemDetail';
-//import {items} from '../components/Context/ItemsContext';
-import items from "../assets/db";
+import { ItemsContext} from '../components/Context/ItemsContext';
 
 function ItemDetailContainer({ match }) {
-    
+
+const [Items, setItems] = useContext(ItemsContext);
 let itemID = match.params.id;
 
 
 return (
       <div>
-    {items.map((item) => {
+    {Items.map((item) => {
             if (item.id === itemID) {
                     return (
                       <ItemDetail item={item}/>

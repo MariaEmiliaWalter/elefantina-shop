@@ -22,6 +22,9 @@
 }
 
 
+.ui.icon.menu a .category:hover {
+  color:rgb(235, 198, 163) !important;
+}
 
 
 /* Mobile */

@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import "./ItemListContainer.css";
 import { Grid, GridColumn} from "semantic-ui-react";
-
 import { ItemsContext } from '../Context/ItemsContext';
+import ItemCard from './ItemCard';
 
 
 function ItemsCategorias({Categoria}) {

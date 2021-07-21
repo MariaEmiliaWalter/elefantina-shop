@@ -1,6 +1,8 @@
 import {React, useState } from 'react'
 import {Link} from "react-router-dom";
 import logo from './logo.svg';
+import { ItemsContext } from '../Context/ItemsContext';
+
 //CSS
 import "./Header.css";
 //Semnatic UI
@@ -13,7 +15,6 @@ Button,
   Sidebar, 
   Input,
   Image,
-  Item,
 } from 'semantic-ui-react'
 
 //Components
@@ -21,38 +22,23 @@ import CartWidget from "../CartContainer/CartWidget";
 
 
 function SideNavbar() {
-    const [visible, setVisible] = useState(false);
-  const [inputText, setInputText] = useState('')
-
-  // const [ItemData, setItemData] = useState({})
-    
+  
+  //navbar
+  const [visible, setVisible] = useState(false);
   const openSidebar = () => {
       setVisible(!visible);
     };
 
+//dropdown Categorias
+const [Dropdown, setDropdown] = useState(false);
+  const OpenDropdown = () => { setDropdown(!Dropdown)};
 
-    const onHandleChange = (e) =>{
-      setInputText(e.target.value);
-    };
+ 
+  const [Categoria, setCategoria] = useState("");
 
-    const onHandleSubmit = (e) =>{
-      e.preventDefault();
-      //sanitizo variable
-      const userInput = inputText.toLocaleLowerCase().replace(/ /g, '');
-      //filter
-      // if (userInput) {
-      //   let data = items.filter((item) => item.title === userInput || item.description === userInput);
-      //   setItemData(data);
-      //   console.log("datos filtrados",ItemData);
-      // };
-      // setInputText('');
-    };
-
-  const [Dropdown, setDropdown] = useState(false);
-    const OpenDropdown = () => { setDropdown(!Dropdown)};
-
-  const getValue = () => {
-   $(".category").value;
+  const CategoriaItem = (e) => {
+    const { name } = e.target;
+    setCategoria(name);
   };
 
      return (
@@ -70,13 +56,11 @@ function SideNavbar() {
              ></Button>
              <Input
                type='text'
-              value={inputText}
-              onChange={onHandleChange}
                className="mobile hidden"
                placeholder="Buscar..."
                action
              ><input />
-               <Button icon="search" type='submit' onClick= {onHandleSubmit}></Button>
+               <Button icon="search" type='submit'></Button>
              </Input>
 
            </Container>
@@ -112,10 +96,10 @@ function SideNavbar() {
               </Link>
              <div id="submenu" className={Dropdown ? "visible" : "hidden"}>
                <Link to={`/productos`}><a className="item category" >VER TODOS LOS PRODUCTOS</a></Link>
-               <Link to={`/Categorias/${a.value}`}><a className="item category" value="Nacimiento">hasta 6 meses</a></Link>
-               <Link to={`/Categorias`}><a className="item category" value="Bebes">6 meses a 2 años</a></Link>
-               <Link to={`/Categorias`}><a className="item category" value="Infantes">2 a 6 años</a></Link>
-               <Link to={`/Categorias`}><a className="item category" value="Niños">+6 años</a></Link>
+               <Link to={`/productos/${Categoria}`}><a className="item category" name="Nacimiento" value={Categoria} key={Categoria} onClick={CategoriaItem} >hasta 6 meses</a></Link>
+               <Link to={`/productos/${Categoria}`}><a className="item category" name="Bebes" value={Categoria} key={Categoria} onClick={CategoriaItem} >6 meses a 2 años</a></Link>
+               <Link to={`/productos/${Categoria}`}><a className="item category" name="Infantes" value={Categoria} key={Categoria} onClick={CategoriaItem} >2 a 6 años</a></Link>
+               <Link to={`/productos/${Categoria}`}><a className="item category" name="Niños" value={Categoria} key={Categoria} onClick={CategoriaItem} >+6 años</a></Link>
              </div>
 
               

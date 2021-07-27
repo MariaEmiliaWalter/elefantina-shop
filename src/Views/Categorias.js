@@ -4,18 +4,18 @@ import { ItemsContext } from '../components/Context/ItemsContext';
 
 
 function Categorias({match}) {
-
-    let ProductosCategorias = match.params.Categoria;
+    const [Items, setItems] = useContext(ItemsContext);
+    let ProductosCategorias = match.params.categoria;
 
     console.log("hola",ProductosCategorias);
-    const [Items, setItems] = useContext(ItemsContext);
     
     return (
         <div>
+            <h1>Categorias</h1>
             {Items.map((item) => {
-                if (item.Categoria === ProductosCategorias) {
+                if (item.categoria === ProductosCategorias) {
                     return (
-                    <ItemsCategorias Categoria={item.Categoria}/>
+                    <ItemsCategorias key={item.categoria} Categoria={item.categoria}/>
                     );
                 };
             })

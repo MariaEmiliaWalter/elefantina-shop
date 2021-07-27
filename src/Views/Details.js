@@ -7,7 +7,7 @@ function ItemDetailContainer({ match }) {
 
 const [Items, setItems] = useContext(ItemsContext);
 let itemID = match.params.id;
-
+console.log("item",itemID);
 
 return (
       <div>

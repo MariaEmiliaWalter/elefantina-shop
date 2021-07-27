@@ -7,12 +7,8 @@ function Section({img, title, text}) {
     return ( 
     <div>
         <Header style={{Margin: "10%"}} >{title}</Header>
-            <Image src={img} ></Image>
-            <Segment className="ui container">
-            {text} 
-        </Segment>
-
-        </div>
+        <Image src={img} ></Image>
+     </div>
     )
 }
 

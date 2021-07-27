@@ -96,10 +96,10 @@ const [Dropdown, setDropdown] = useState(false);
               </Link>
              <div id="submenu" className={Dropdown ? "visible" : "hidden"}>
                <Link to={`/productos`}><a className="item category" >VER TODOS LOS PRODUCTOS</a></Link>
-               <Link to={`/productos/${Categoria}`}><a className="item category" name="Nacimiento" value={Categoria} key={Categoria} onClick={CategoriaItem} >hasta 6 meses</a></Link>
-               <Link to={`/productos/${Categoria}`}><a className="item category" name="Bebes" value={Categoria} key={Categoria} onClick={CategoriaItem} >6 meses a 2 años</a></Link>
-               <Link to={`/productos/${Categoria}`}><a className="item category" name="Infantes" value={Categoria} key={Categoria} onClick={CategoriaItem} >2 a 6 años</a></Link>
-               <Link to={`/productos/${Categoria}`}><a className="item category" name="Niños" value={Categoria} key={Categoria} onClick={CategoriaItem} >+6 años</a></Link>
+               <Link to={`/products/${Categoria}`}><a className="item category" name="Nacimiento" value={Categoria} key={Categoria} onClick={CategoriaItem} >hasta 6 meses</a></Link>
+               <Link to={`/products/${Categoria}`}><a className="item category" name="Bebes" value={Categoria} key={Categoria} onClick={CategoriaItem} >6 meses a 2 años</a></Link>
+               <Link to={`/products/${Categoria}`}><a className="item category" name="Infantes" value={Categoria} key={Categoria} onClick={CategoriaItem} >2 a 6 años</a></Link>
+               <Link to={`/products/${Categoria}`}><a className="item category" name="Ninos" value={Categoria} key={Categoria} onClick={CategoriaItem} >+6 años</a></Link>
              </div>
 
               

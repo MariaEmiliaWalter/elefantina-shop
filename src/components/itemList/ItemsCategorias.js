@@ -7,9 +7,9 @@ import ItemCard from './ItemCard';
 
 function ItemsCategorias({Categoria}) {
 
-    const [Items, setItems] = useContext(ItemsContext);
+ const [Items, setItems] = useContext(ItemsContext);
 
-    const ItemsPorCategoria = (
+const ItemsPorCategoria = (
         Items.map((item) => {
             if (Categoria === item.Categoria) {
                 return (

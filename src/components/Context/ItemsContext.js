@@ -1,6 +1,5 @@
 import React, {useState, createContext, useEffect} from 'react';
 import { db } from './Firebase';
-import items from "../../assets/db";
 
 
 //Contexto

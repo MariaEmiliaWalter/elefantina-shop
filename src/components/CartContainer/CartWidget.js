@@ -41,6 +41,16 @@ const {
     totalItems,
   } = useCart();
 
+
+const getItem = () => {
+  items.map((item) => {
+  items =item.quantity + "x" + item.title;     
+    })
+};
+
+
+
+
 return (
       <div>
     <Menu.Item as='a'>
@@ -86,16 +96,19 @@ return (
                   return (
                     <li key={item.id}>
                       {item.quantity} x {item.title} &mdash;
-                      <button onClick={() => removeItem(item.id)}>&times;</button>
+                      <button onClick={() => removeItem(item.id)}>&times; </button>
                     </li>
                   )
                 })}
-
+ 
               </ul>
-              <Link to="/cart" display={active ? "visible" : "hidden"}><Button onChange={onHandleChange}>
+              <Grid.Row>
+                <Link to={`/cart/`} display={active ? "visible" : "hidden"}><Button onChange={onHandleChange}>
                 Terminar mi compra
               </Button>
               </Link>
+                <Button onClick={() => emptyCart(items)}> Borrar carrito</Button>
+              </Grid.Row>
             </div>
 
           }
@@ -107,3 +120,5 @@ return (
 }
 
 export default CartWidget;
+
+//${ cartID }

@@ -33,7 +33,7 @@ function ItemDetail({item}) {
                             <Item.Description as="h4">
                                 {item.description}
                             </Item.Description>
-                            <ItemCount Product={item} />
+                            <ItemCount Product={item} key={item.id} />
                         </Item>
                     </Grid.Column>
                 </Grid.Row>

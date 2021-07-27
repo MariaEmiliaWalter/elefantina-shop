@@ -1,8 +1,7 @@
 import { React, useState } from "react";
 import { Label, Button, Grid,Card } from "semantic-ui-react";
+import { db } from "../Context/Firebase";
 import { useCart } from "react-use-cart";
-
-
 
 
 function ItemCount({Product}) {
@@ -13,21 +12,35 @@ function ItemCount({Product}) {
   const [Quantity, setQuantity] = useState(0);
   const [Active, setActive] = useState(true);
 
+
+
+
+
+
   const sumarItems = () => {
     if ((stock >= counter) || (stock >= 1)) {
       setCounter(counter + 1);
-      setQuantity(counter);
       setStock(stock - 1);
+      setQuantity(counter);
      };
   };
 
   const RestarItems = () => {
     if ((counter >= stock) || (counter >= 1)) {
       setCounter(counter - 1);
-      setQuantity(counter);
       setStock(stock + 1);
+      setQuantity(counter);
       };
   };
+
+const EditData = () => {
+  let ItemID = Product.id;
+  //FALTA SETEAR STOCK NUEVAMENTE SI CANCELO EN EL CARRITO
+  db.collection('Productos').doc(ItemID).set({ ...Product, stock})
+};
+
+
+
 
 
   let addQuantity = Number(Quantity);
@@ -68,7 +81,7 @@ function ItemCount({Product}) {
             type="submit"
             onClick={() => { 
               addItem(Product, addQuantity);
-              setStock((stock) - (addQuantity));
+              EditData();
               setCounter(0);
               } 
             }
@@ -76,7 +89,6 @@ function ItemCount({Product}) {
           > { Active ? 
             "Añadir al carrito" 
             : "No hay más stock"
-
           }</Button>
        </Card>
     </Grid.Column>

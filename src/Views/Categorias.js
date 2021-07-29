@@ -1,22 +1,26 @@
 import React, { useContext } from 'react';
 import ItemsCategorias from "../components/itemList/ItemsCategorias";
 import { ItemsContext } from '../components/Context/ItemsContext';
+import { useParams }from "react-router-dom";
 
 
-function Categorias({match}) {
+function Categorias() {
+
+    const { Categoria } = useParams()
+
     const [Items, setItems] = useContext(ItemsContext);
-    let ProductosCategorias = match.params.categoria;
+    //let ProductosCategorias = match.params.categoria;
 
-    console.log("hola",ProductosCategorias);
+    //console.log("hola", Categoria);
     
     return (
         <div>
             <h1>Categorias</h1>
             {Items.map((item) => {
-                if (item.categoria === ProductosCategorias) {
+                if (item.Categoria == Categoria) {
                     return (
-                    <ItemsCategorias key={item.categoria} Categoria={item.categoria}/>
-                    );
+                    <ItemsCategorias key={item.Categoria} Categoria={item.Categoria}/>
+                    ); 
                 };
             })
         }

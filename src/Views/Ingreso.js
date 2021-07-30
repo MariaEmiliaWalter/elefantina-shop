@@ -2,10 +2,9 @@ import React,{useState} from 'react';
 import UserForm from '../components/Users/UserForm';
 import { UserContext } from '../components/Context/UserContext';
 
-
 //Semnatic UI
 import {
-    Button,
+    Button, Header
 } from 'semantic-ui-react'
 
 
@@ -38,6 +37,7 @@ function Ingreso() {
 
     return (
         <div>
+            <Header>Bienvenido</Header>
             <Button onClick="">
                 Ingresar
             </Button>

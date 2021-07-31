@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState} from 'react';
 
 //imagenes
 import logo from '../assets/ingreso-03.jpg'
@@ -29,24 +29,24 @@ function Ingreso() {
         <div>
             <Grid verticalAlign='middle' centered>
                 <Grid.Row>
-                    <Grid.Column width={8} className="btn-ingreso">
+                    <Grid.Column computer={8} tablet={12} mobile={16} className="btn-ingreso">
                         <Image src={logo}></Image>
-                        <Button.Group className="btn-group">
+                        <Button.Group size='big' className="btn-group" >
                             <Link to={`/Login/${Estado}`} onMouseOver={KeyButton} onClick={KeyButton}>
-                                <Button className="btn2" name="ingresar" key="ingresar" value={Estado}>
+                                <Button  className="btn2" name="ingresar" key="ingresar" value={Estado}>
                             INGRESAR
                         </Button>
                         </Link>  
                             <Button.Or text='O'/>
                             <Link to={`/Login/${Estado}`} onMouseOver={KeyButton} onClick={KeyButton}>
-                                <Button className="btn2" name="registrar" key="registrar" value={Estado}>
+                                <Button  className="btn2" name="registrar" key="registrar" value={Estado}>
                                 REGISTRARSE
                             </Button>
                             </Link>
                         </Button.Group>
 
                 </Grid.Column>
-                    <Grid.Column width={8}>
+                    <Grid.Column computer={8} tablet={12} mobile={16}>
                         <Image src={logotipo}></Image>          
                 </Grid.Column>
                 </Grid.Row>     

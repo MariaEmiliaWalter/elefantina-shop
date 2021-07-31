@@ -72,7 +72,7 @@ const [Dropdown, setDropdown] = useState(false);
 
            </Container>
            <Container textAlign="center">
-             <Link to={`/`}><Image src={logo} size="tiny" float="right" />
+             <Link to={`/home`}><Image src={logo} size="tiny" float="right" />
            </Link>
            </Container>
            <CartWidget />
@@ -89,7 +89,7 @@ const [Dropdown, setDropdown] = useState(false);
              visible={visible}
              //width="thin"
            >
-             <Link to="/">
+             <Link to="/home">
                <Menu.Item as="a">
                <Icon name="home" />
                Home

@@ -21,11 +21,13 @@ align-items: center !important;
 }
 
 .btn-group{
-width: 70%;
 align-items: center !important;
+justify-content: center !important;
 }
 
-.btn-ingreso .btn2 {
+
+.btn-ingreso .btn-group .btn2 {
+/* width: 16rem !important; */
 color: #a0bbd3 !important;
 border: 2px solid #a0bbd3 !important;
 border-radius: 5px !important;
@@ -34,9 +36,25 @@ margin: 4px !important;
 text-align: center !important;
 }
 
-.btn-ingreso .btn2:hover {
+.btn-ingreso .btn-group .btn2:hover {
 color: white !important;
 background-color: #a6c3ce !important;
 border: 2px solid  #a6c3ce !important;
-
 }
+
+
+/* Mobile 
+@media only screen and (max-width: 767px) {
+  [class*="btn2"] {
+    width: 8rem !important;
+    margin: 2px !important;
+  }
+}
+
+/* ipad
+@media (min-width: 768px) and (max-width: 1200px) {
+  [class*="btn2"] {
+    width: 8rem !important;
+    margin: 2px !important;
+  }
+} */ 

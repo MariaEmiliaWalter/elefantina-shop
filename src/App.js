@@ -29,15 +29,14 @@ function App() {
         <Header/>
         <div className="Body">
           <Switch>
-            {/* <Route path="/" exact component={SignIn}></Route> */}
-            <Route path="/" exact component={Home} ></Route>
+            <Route path="/" exact component={SignIn}></Route>
+            <Route path="/home" component={Home} ></Route>
             <Route path="/productos" component={Productos} ></Route>
             <Route path="/nosotros" component={Nosotros} ></Route>
             <Route path="/contacto" component={Contact} ></Route>
             <Route path="/details/:id" component={Details} ></Route>
             <Route path="/Categorias/:Categoria" component={Categorias} ></Route>
-            <Route path="/cart" component={Cart}></Route>
-            <Route path="/ingreso" component={SignIn}></Route>
+            <Route path="/cart" component={Cart}></Route>    
             <Route path="/Login/:Estado" component={LogIn}></Route>
           </Switch>
         </div>

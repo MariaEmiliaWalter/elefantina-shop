@@ -12,7 +12,7 @@ import Details from "./Views/Details";
 import Cart from "./Views/Cart";
 import Categorias from './Views/Categorias';
 import SignIn from './Views/Ingreso';
-
+import LogIn from "./Views/Login";
 //Components
 import Header from "./components/Header/Header";
 //Provider
@@ -38,6 +38,7 @@ function App() {
             <Route path="/Categorias/:Categoria" component={Categorias} ></Route>
             <Route path="/cart" component={Cart}></Route>
             <Route path="/ingreso" component={SignIn}></Route>
+                  <Route path="/Login/:Estado" component={LogIn}></Route>
           </Switch>
         </div>
       </ItemsProvider>

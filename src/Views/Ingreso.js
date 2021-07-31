@@ -1,51 +1,60 @@
-import React,{useState} from 'react';
-import UserForm from '../components/Users/UserForm';
-import { UserContext } from '../components/Context/UserContext';
+import React,{useState, useEffect} from 'react';
+
+//imagenes
+import logo from '../assets/ingreso-03.jpg'
+import logotipo from '../assets/ingreso-04.jpg'
+//React Router
+import { Link } from 'react-router-dom';
+import '../App.css';
 
 //Semnatic UI
 import {
-    Button, Header
-} from 'semantic-ui-react'
-
-
-
-const LoginIn = (
-  <UserForm/>  
-);
-
-
-
-// const Buttons = (
-//      <Button onClick="">
-//                 Ingresar
-//             </Button>
-//             <Button key="register" onClick={LoginIn} >
-//                 Registrarse
-//             </Button>
-// );
-    
+    Button, Grid, Image
+} from 'semantic-ui-react';
 
 
 
 function Ingreso() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [Users, setUsers] = useState(UserContext)
 
-    const onHandleClick = () =>{
-        
+
+    const [Estado, setEstado] = useState("");
+
+    const KeyButton = (e) => {
+        const { name } = e.target;
+        setEstado(name);
     };
+
+    useEffect(() => {
+        KeyButton();
+    }, []);
 
     return (
         <div>
-            <Header>Bienvenido</Header>
-            <Button onClick="">
-                Ingresar
-            </Button>
-            <Button key="register" onClick={LoginIn} >
-                Registrarse
-            </Button>
-        </div>
-        
+            <Grid verticalAlign='middle' centered>
+                <Grid.Row>
+                    <Grid.Column width={8} className="btn-ingreso">
+                        <Image src={logo}></Image>
+                        <Button.Group className="btn-group">
+                            <Link to={`/Login/${Estado}`}>
+                                <Button className="btn2" name="ingresar">
+                            INGRESAR
+                        </Button>
+                        </Link>  
+                            <Button.Or text='O'/>
+                            <Link to={`/Login/${Estado}`}>
+                                <Button className="btn2" name="registrar">
+                                REGISTRARSE
+                            </Button>
+                            </Link>
+                        </Button.Group>
+
+                </Grid.Column>
+                    <Grid.Column width={8}>
+                        <Image src={logotipo}></Image>          
+                </Grid.Column>
+                </Grid.Row>     
+          </Grid> 
+            </div>
     )
 }
 

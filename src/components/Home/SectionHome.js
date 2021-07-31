@@ -7,7 +7,7 @@ import ItemCard from '../itemList/ItemCard';
 import { ItemsContext } from '../Context/ItemsContext';
 
 function Section() {
-    const [Items, setItems] = useContext(ItemsContext);
+    const [Items] = useContext(ItemsContext);
 
     return (
         <div>
@@ -16,7 +16,7 @@ function Section() {
             {Items.map((item) => {
                 if (item.OnSale === "true") {
                     return (
-                        <Grid.Column width={13}>
+                        <Grid.Column key="onSale" width={13}>
                             <Grid stackable >
                                 <Grid.Column computer={4} tablet={4} mobile={8}>
                                     <ItemCard items={item} key={item.id} />

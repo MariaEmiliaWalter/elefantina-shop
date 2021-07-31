@@ -1,7 +1,6 @@
-import {React, useState } from 'react'
+import {React, useState} from 'react'
 import {Link} from "react-router-dom";
 import logo from './logo.svg';
-import { ItemsContext } from '../Context/ItemsContext';
 
 //CSS
 import "./Header.css";
@@ -40,6 +39,14 @@ const [Dropdown, setDropdown] = useState(false);
     const { name } = e.target;
     setCategoria(name);
   };
+
+
+  // useEffect((e) => {
+  //   const { name } = e.target;
+  //   setCategoria(name);
+  // }, []);
+
+
 
      return (
       
@@ -95,15 +102,15 @@ const [Dropdown, setDropdown] = useState(false);
               </Menu.Item>
               </Link>
              <div id="submenu" className={Dropdown ? "visible" : "hidden"}>
-               <Link to={`/productos`}><a className="item category" >VER TODOS LOS PRODUCTOS</a></Link>
-               <Link to={`/Categorias/${Categoria}`}><a className="item category" name="Nacimiento" value={Categoria} key={Categoria} onClick={CategoriaItem} >hasta 6 meses</a></Link>
-               <Link to={`/Categorias/${Categoria}`}><a className="item category" name="Bebes" value={Categoria} key={Categoria} onClick={CategoriaItem} >6 meses a 2 años</a></Link>
-               <Link to={`/Categorias/${Categoria}`}><a className="item category" name="Infantes" value={Categoria} key={Categoria} onClick={CategoriaItem} >2 a 6 años</a></Link>
-               <Link to={`/Categorias/${Categoria}`}><a className="item category" name="Ninos" value={Categoria} key={Categoria} onClick={CategoriaItem} >+6 años</a></Link>
+               <Link to={`/productos`}><a className="item category" key="ProductosTotales" >VER TODOS LOS PRODUCTOS</a></Link>
+               <Link to={`/Categorias/${Categoria}`} onMouseOver={CategoriaItem} onClick={CategoriaItem}><a className="item category" name="Nacimiento" value={Categoria} key="Nacimiento" >hasta 6 meses</a></Link>
+               <Link to={`/Categorias/${Categoria}`} onMouseOver={CategoriaItem} onClick={CategoriaItem} ><a className="item category" name="Bebes" value={Categoria} key="Bebes">6 meses a 2 años</a></Link>
+               <Link to={`/Categorias/${Categoria}`} onMouseOver={CategoriaItem} onClick={CategoriaItem} ><a className="item category" name="Infantes" value={Categoria} key="Infantes" >2 a 6 años</a></Link>
+               <Link to={`/Categorias/${Categoria}`} onMouseOver={CategoriaItem} onClick={CategoriaItem} ><a className="item category" name="Ninos" value={Categoria} key="Ninos" >+6 años</a></Link>
              </div>
 
               
-             
+              
              <Link to="/nosotros">
                <Menu.Item as="a">
                <Icon name="heart" />

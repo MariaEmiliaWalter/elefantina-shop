@@ -12,3 +12,31 @@
   margin-top: 2rem !important;
   text-align: left !important;
 }
+
+
+.btn-ingreso{
+display: flex !important;
+justify-content: center !important;
+align-items: center !important;
+}
+
+.btn-group{
+width: 70%;
+align-items: center !important;
+}
+
+.btn-ingreso .btn2 {
+color: #a0bbd3 !important;
+border: 2px solid #a0bbd3 !important;
+border-radius: 5px !important;
+background-color: white !important;
+margin: 4px !important;
+text-align: center !important;
+}
+
+.btn-ingreso .btn2:hover {
+color: white !important;
+background-color: #a6c3ce !important;
+border: 2px solid  #a6c3ce !important;
+
+}

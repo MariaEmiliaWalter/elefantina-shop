@@ -1,7 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import "./ItemListContainer.css";
 import ItemCard from './ItemCard';
-import { Grid, GridColumn, Menu, Icon} from "semantic-ui-react";
+import { Grid, GridColumn} from "semantic-ui-react";
 
 import {ItemsContext} from '../Context/ItemsContext';
 
@@ -9,10 +9,10 @@ import {ItemsContext} from '../Context/ItemsContext';
 
 
 function ItemListContainer() {
-  const [Items, setItems] = useContext(ItemsContext);
+  const [Items] = useContext(ItemsContext);
 
-  const [Dropdown, setDropdown] = useState(false);
-  const OpenDropdown = () => { setDropdown(!Dropdown) };
+  //onst [Dropdown, setDropdown] = useState(false);
+  //const OpenDropdown = () => { setDropdown(!Dropdown) };
 
 //TODOS LOS PRODUCTOS
   const ItemsInicial = (

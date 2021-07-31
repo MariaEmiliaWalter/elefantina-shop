@@ -10,7 +10,7 @@ function ItemCount({Product}) {
   const [counter, setCounter] = useState(0);
   const [stock, setStock] = useState(Number(StockInicial));
   const [Quantity, setQuantity] = useState(0);
-  const [Active, setActive] = useState(true);
+  const [Active] = useState(true);
 
 
 

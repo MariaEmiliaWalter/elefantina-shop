@@ -24,9 +24,6 @@ function Ingreso() {
         setEstado(name);
     };
 
-    useEffect(() => {
-        KeyButton();
-    }, []);
 
     return (
         <div>
@@ -35,14 +32,14 @@ function Ingreso() {
                     <Grid.Column width={8} className="btn-ingreso">
                         <Image src={logo}></Image>
                         <Button.Group className="btn-group">
-                            <Link to={`/Login/${Estado}`}>
-                                <Button className="btn2" name="ingresar">
+                            <Link to={`/Login/${Estado}`} onMouseOver={KeyButton} onClick={KeyButton}>
+                                <Button className="btn2" name="ingresar" key="ingresar" value={Estado}>
                             INGRESAR
                         </Button>
                         </Link>  
                             <Button.Or text='O'/>
-                            <Link to={`/Login/${Estado}`}>
-                                <Button className="btn2" name="registrar">
+                            <Link to={`/Login/${Estado}`} onMouseOver={KeyButton} onClick={KeyButton}>
+                                <Button className="btn2" name="registrar" key="registrar" value={Estado}>
                                 REGISTRARSE
                             </Button>
                             </Link>

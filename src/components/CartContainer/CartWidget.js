@@ -42,11 +42,11 @@ const {
   } = useCart();
 
 
-const getItem = () => {
-  items.map((item) => {
-  items =item.quantity + "x" + item.title;     
-    })
-};
+// const getItem = () => {
+//   items.map((item) => {
+//   items =item.quantity + "x" + item.title;     
+//     })
+// };
 
 
 
@@ -103,7 +103,7 @@ return (
  
               </ul>
               <Grid.Row>
-                <Link to={`/cart/`} display={active ? "visible" : "hidden"}><Button onChange={onHandleChange}>
+                <Link to={`/cart`} display={active ? "visible" : "hidden"}><Button onChange={onHandleChange}>
                 Terminar mi compra
               </Button>
               </Link>

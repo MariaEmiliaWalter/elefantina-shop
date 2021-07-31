@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import "./ItemListContainer.css";
 import { Grid, GridColumn} from "semantic-ui-react";
 import ItemCard from './ItemCard';

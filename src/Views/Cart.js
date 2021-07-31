@@ -2,9 +2,8 @@ import React from 'react'
 import CartListDisplay from '../components/CartContainer/CartListDisplay';
 
 
-function Cart({match}) {
+function Cart() {
 
- let CartID = match.params.id;
     return (
         <div>
             <CartListDisplay/>

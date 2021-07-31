@@ -1,13 +1,13 @@
 import React,{useState} from 'react'
 import {useCart} from "react-use-cart";
 import { Button,Grid} from "semantic-ui-react";
-import { UserContext } from '../Context/UserContext';
+//import { UserContext } from '../Context/UserContext';
 import { db } from '../Context/Firebase';
 import { Link } from 'react-router-dom';
 
 
 function CartListDisplay() {
-    const [Users, setUsers] = useState(UserContext)
+    //const [Users, setUsers] = useState(UserContext)
     const [active, setActive] = useState(false);
 
     const {

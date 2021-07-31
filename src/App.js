@@ -38,7 +38,7 @@ function App() {
             <Route path="/Categorias/:Categoria" component={Categorias} ></Route>
             <Route path="/cart" component={Cart}></Route>
             <Route path="/ingreso" component={SignIn}></Route>
-                  <Route path="/Login/:Estado" component={LogIn}></Route>
+            <Route path="/Login/:Estado" component={LogIn}></Route>
           </Switch>
         </div>
       </ItemsProvider>

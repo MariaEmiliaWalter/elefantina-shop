@@ -1,4 +1,4 @@
-import React, { useContext,useEffect } from 'react';
+import React, { useContext } from 'react';
 import ItemsCategorias from "../components/itemList/ItemsCategorias";
 import { ItemsContext } from '../components/Context/ItemsContext';
 import { useParams }from "react-router-dom";

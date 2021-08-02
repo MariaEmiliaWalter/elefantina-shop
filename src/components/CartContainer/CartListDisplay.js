@@ -1,14 +1,15 @@
 import React,{useState} from 'react'
 import {useCart} from "react-use-cart";
-import { Button,Grid} from "semantic-ui-react";
+import { Button, Grid, Divider, GridColumn,Header,Icon,Card,Modal,Form,Input} from "semantic-ui-react";
 //import { UserContext } from '../Context/UserContext';
 import { db } from '../Context/Firebase';
-import { Link } from 'react-router-dom';
-
+import { useHistory } from 'react-router-dom';
 
 function CartListDisplay() {
     //const [Users, setUsers] = useState(UserContext)
     const [active, setActive] = useState(false);
+    const [open, setOpen] = React.useState(false)
+    let history = useHistory();
 
     const {
         isEmpty,
@@ -27,17 +28,36 @@ function CartListDisplay() {
         }
     };
 
-    const getItem = () => {
-        items.map((item) => {
-            return item.id;
-        })
-    };
-
-    const getQuantity = () => {
-        items.map((item) => {
-            return item.quantity;
-        })
-    };
+//    const Modal = () => {
+//        return (
+//        <div><Modal
+//         as={Form}
+//          onClose={() => setOpen(false)}
+//         onOpen={() => setOpen(true)}
+//         open={open}
+//         trigger={AddCart}
+//         content='Call Benjamin regarding the reports.'
+//         actions={['Snooze', { key: 'done', content: 'Done', positive: true }]}
+//        />
+//         <Modal.Header></Modal.Header>
+//         <Modal.Description>
+//                    <Input></Input>
+//         </Modal.Description>
+//                <Modal.Actions>
+//                    <Button color='black' onClick={() => setOpen(false)}>
+//                        Nope
+//                    </Button>
+//                    <Button
+//                        content="Yep, that's me"
+//                        labelPosition='right'
+//                        icon='checkmark'
+//                        onClick={() => setOpen(false)}
+//                        positive
+//                    />
+//                </Modal.Actions>
+//        </div>
+//        )
+//    };
 
     const AddCart = () => {
         db.collection('Ventas').doc().set({
@@ -46,38 +66,68 @@ function CartListDisplay() {
             total: totalItems,
             precioTotal: cartTotal
         })
-        alert("Compra terminada");
         emptyCart(items);
+        //history.push("/home");
     };
 
     return(
         <div>
+            <Grid centered stackable>
             <Grid.Row>
                 {(isEmpty)
                     ? <h3> El carrito aún no tiene productos</h3>
                     : <div>
-                        <h1> Cart ({totalUniqueItems})</h1>
-                        <ul>
+                            <Divider horizontal>
+                                <Header as='h4'>
+                                    <Icon name='tag' />
+                                    DETALLE DE PRODUCTO:  (Cantidad:{totalItems})
+                                </Header>
+                            </Divider>
+                
                             {items.map((item) => {
+                                let price = Number(item.price);
+                                let quantity = Number(item.quantity);
                                 return (
-                                    <li key={item.id}>
-                                        {item.quantity} x {item.title} &mdash;
-                                        <button onClick={() => removeItem(item.id)}>&times; </button>
-                                    </li>
+                                    <Grid container columns={5} >
+                                        <Grid.Row>
+                                            <GridColumn>
+                                                {item.quantity}
+                                            </GridColumn>
+                                            x
+                                            <GridColumn>
+                                                {item.title}
+                                            </GridColumn>
+                                             &mdash;
+                                            <GridColumn >
+                                                ${price * quantity}
+                                            </GridColumn>
+                                            <GridColumn>
+                                                <button onClick={() => removeItem(item.id)}>borrar item </button>
+                                            </GridColumn>
+                                    </Grid.Row>
+                                        <Divider section />
+                                    </Grid>
                                 )
                             })}
-
-                        </ul>
-                        <Grid.Row>
-                            <Link to="/"><Button display={active ? "visible" : "hidden"} onChange={onHandleChange} onClick={AddCart}>
-                                Terminar mi compra
-                            </Button></Link>
-                            <Button onClick={() => emptyCart(items)}> Borrar carrito</Button>
-                        </Grid.Row>
-                    </div>
-
+                            <Grid.Row container >
+                            <Card fluid color='teal' > 
+                            <Card.Content textAlign="left">
+                                <Header>Precio final: $ {cartTotal}
+                                </Header>
+                                </Card.Content>
+                                </Card>
+                            </Grid.Row>     
+                   </div>
                 }
-            </Grid.Row>
+                </Grid.Row>
+                                    <Grid.Row>
+                            <Button display={active ? "visible" : "hidden"} onChange={onHandleChange} onClick={AddCart}>
+                                Terminar mi compra
+                            </Button>
+                            <Button onClick={() => emptyCart(items)}> Borrar carrito</Button>
+                            
+                        </Grid.Row>
+        </Grid>
         </div>
     );
 }

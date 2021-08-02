@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import React,{ useState } from "react";
 import { Label, Button, Grid,Card } from "semantic-ui-react";
 import { db } from "../Context/Firebase";
 import { useCart } from "react-use-cart";
@@ -6,22 +6,19 @@ import { useCart } from "react-use-cart";
 
 function ItemCount({Product}) {
   let StockInicial = Product.stock;
-  const { addItem } = useCart();
+  const { addItem, updateItemQuantity } = useCart();
   const [counter, setCounter] = useState(0);
   const [stock, setStock] = useState(Number(StockInicial));
   const [Quantity, setQuantity] = useState(0);
   const [Active] = useState(true);
 
-
-
-
-
+  let ItemID = Product.id;
 
   const sumarItems = () => {
     if ((stock >= counter) || (stock >= 1)) {
       setCounter(counter + 1);
       setStock(stock - 1);
-      setQuantity(counter);
+      setQuantity(Number(Quantity) + 1);
      };
   };
 
@@ -29,36 +26,33 @@ function ItemCount({Product}) {
     if ((counter >= stock) || (counter >= 1)) {
       setCounter(counter - 1);
       setStock(stock + 1);
-      setQuantity(counter);
+      setQuantity(Number(Quantity)-1);
       };
   };
 
 const EditData = () => {
-  let ItemID = Product.id;
+  //let ItemID = Product.id;
   //FALTA SETEAR STOCK NUEVAMENTE SI CANCELO EN EL CARRITO
   db.collection('Productos').doc(ItemID).set({ ...Product, stock})
 };
 
 
+const onHandleSubmit = () => {
+    addItem(Product, Number(Quantity));
+    console.log("ADD ITEM", Product, Number(Quantity))
+    EditData();
+    setCounter(0);
+    setQuantity(0);
+};
 
+  //let addQuantity = Number(Quantity);
 
-
-  let addQuantity = Number(Quantity);
-
- 
-  /* const sinStock = () => {
-  if ( stock = 0){
-    document.getElementsByClassName("stockDisponible").textContent = "No hay más stock disponible"
-  } else {
-    document.getElementsByClassName("stockDisponible").textContent = "Stock disponible: {stock}"
-  }
-  }; */
 
 
   return (
       <Grid>
      <Grid.Column>
-       <Card>
+       <Card key={ItemID}>
          <Card.Content>
            <Button
         circular
@@ -78,13 +72,8 @@ const EditData = () => {
        <Card.Meta id="stockDisponible"> Stock disponible: {stock} </Card.Meta>
 
           <Button id="CartButton"
-            type="submit"
-            onClick={() => { 
-              addItem(Product, addQuantity);
-              EditData();
-              setCounter(0);
-              } 
-            }
+            type="button"
+            onClick={onHandleSubmit}
             className={Active ? "active" : "disabled" }
           > { Active ? 
             "Añadir al carrito" 

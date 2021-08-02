@@ -5,15 +5,19 @@ Button,
   Menu,
   Icon,
   Label,
-  Sidebar} from "semantic-ui-react";
+  Sidebar,
+Card,
+Header,
+Divider,
+} from "semantic-ui-react";
 import "../Header/Header.css";
 import { useCart } from "react-use-cart";
-import { Link } from 'react-router-dom';
+import { useHistory  } from 'react-router-dom';
 
 
 
 function CartWidget() {
-
+let history = useHistory();
 const [visible, setVisible] = useState(false);
 const [active, setActive] = useState(false);
 
@@ -28,7 +32,9 @@ const onHandleChange = () => {
   }
 };
 
-
+const onHandleClick = () =>{
+  history.push("/cart");
+};
 
 const {
     isEmpty,
@@ -40,14 +46,6 @@ const {
     emptyCart,
     totalItems,
   } = useCart();
-
-
-// const getItem = () => {
-//   items.map((item) => {
-//   items =item.quantity + "x" + item.title;     
-//     })
-// };
-
 
 
 
@@ -90,31 +88,42 @@ return (
           {(isEmpty)
             ? <h3> El carrito aún no tiene productos</h3>
             : <div>
-              <h1> Cart ({totalUniqueItems})</h1>
+              <Divider horizontal>
+                <Header as='h4'>
+                  DETALLE DE PRODUCTO
+                </Header>
+              </Divider>
               <ul>
                 {items.map((item) => {
+                  let price = Number(item.price);
+                  let quantity = Number(item.quantity);
                   return (
                     <li key={item.id}>
-                      {item.quantity} x {item.title} &mdash;
+                      {item.quantity} x {item.title} = ${price*quantity} &mdash;
                       <button onClick={() => removeItem(item.id)}>&times; </button>
                     </li>
                   )
                 })}
  
               </ul>
-              <Grid.Row>
-                <Link to={`/cart`} display={active ? "visible" : "hidden"}><Button onChange={onHandleChange}>
-                Terminar mi compra
-              </Button>
-              </Link>
-                <Button onClick={() => emptyCart(items)}> Borrar carrito</Button>
-              </Grid.Row>
+
             </div>
 
           }
             </Grid.Row>
+
+        <Grid.Row>
+          <Grid.Column>
+            <Button onChange={onHandleChange} display={active ? "visible" : "hidden"} onClick={onHandleClick}>
+            Terminar mi compra
+          </Button>
+          <Button onClick={() => emptyCart(items)}> Borrar carrito</Button>
+          </Grid.Column>
+        </Grid.Row>
+
           </Sidebar>
         </Grid.Column>
+
       </div>
     );
 }

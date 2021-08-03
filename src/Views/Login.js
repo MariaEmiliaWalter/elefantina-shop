@@ -13,7 +13,6 @@ function Login() {
 
     return (
         <div>
-            <h1>Ingreso</h1>
             {Condicion ? <UserForm /> : <Ingresar />  }
     </div>
     )

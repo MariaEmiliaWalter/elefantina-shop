@@ -130,4 +130,3 @@ return (
 
 export default CartWidget;
 
-//${ cartID }

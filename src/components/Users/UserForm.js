@@ -4,40 +4,31 @@ import {
     Form,
     Input,
     Grid,
+    Header,
 } from "semantic-ui-react";
 import { useHistory } from 'react-router-dom';
 import { db } from '../Context/Firebase';
 
-// const genderOptions = [
-//     { key: 'm', text: 'Masculino', value: 'Masculino' },
-//     { key: 'f', text: 'Femenino', value: 'Femenino' },
-//     { key: 'o', text: 'Otro', value: 'Otro' },
-//     { key: 'no', text: 'Prefiero no darlo', value: 'NoDice' },
-// ];
-
-
-
-
 
 function UserForm() {
 const [disabled,setDisabled ] = useState(false);
-const [User, setUser] = useState(initialState);
 const [IsLogged, setIsLogged] = useState(false)
 let history = useHistory();
-
-
 const initialState = {
         Nombre: '',
         Apellido: '',
         Usuario: '',
         Email: '',
         Contraseña: '',
-    IsLogged: {IsLogged},
+        IsLogged,
 };
 
 
+const [User, setUser] = useState(initialState);
+
+
     const handleOnChange = (e) => {
-        setIsLogged(true);
+        setIsLogged(!IsLogged);
         const { name, value } = e.target;
         setUser({ ...User, [name]: value });
     };
@@ -58,6 +49,7 @@ const initialState = {
     
     return (
         <div>
+            <Header>¡Hola, gracias por ser parte de nuestra comunidad!</Header>
             <Grid centered>
                 <Grid.Column width={8}>
                     <Form onSubmit={handleOnSubmit}>
@@ -80,17 +72,6 @@ const initialState = {
                                 value={User.Apellido}
                                 onChange={handleOnChange}
                             />
-                            {/* <Form.Field
-                                control={Select}
-                                options={genderOptions}
-                                label={{ children: 'Género', htmlFor: 'form-select-control-gender' }}
-                                placeholder='Género'
-                                name={genderOptions.value}
-                                search
-                                searchInput={{ id: 'form-select-control-gender' }}
-                                onChange={handleOnChange}
-                            /> */}
-
                         </Form.Group>
                         <Form.Field required
                             id='form-input-user'

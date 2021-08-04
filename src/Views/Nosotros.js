@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
+import NosotrosComponente from '../components/Nosotros+Tips/Nosotros';
 
 function Nosotros() {
     return (
-        <div>
-            Nosotros
-        </div>
-    )
+        <NosotrosComponente/>
+        )
 }
 
 export default Nosotros;
+

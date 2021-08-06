@@ -3,17 +3,20 @@ import ItemsCategorias from "../components/itemList/ItemsCategorias";
 import { ItemsContext } from '../components/Context/ItemsContext';
 import { useParams }from "react-router-dom";
 import { Grid, GridColumn } from "semantic-ui-react";
+import LoaderCentered from '../components/Context/LoaderCentered';
 
 function Categorias() {
 
     const { Categoria } = useParams()
 
-    const [Items] = useContext(ItemsContext);
-
+    const { items, IsLoading } = useContext(ItemsContext);
+    const [Items] = items;
+    const [Loader] = IsLoading;
     return (
         <div >
-            <h1>Categorias</h1>
+            <h1>Categorias: {Categoria}</h1>
             <div>
+                <div> {Loader ? <LoaderCentered /> : null} </div>
                 <Grid className="displayGroup" >
                     <Grid.Row>
                         <GridColumn only='computer' width={3} style={{ height: "100%" }} > </GridColumn>

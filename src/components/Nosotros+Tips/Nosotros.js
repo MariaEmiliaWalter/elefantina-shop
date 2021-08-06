@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Grid, Image, Header
 } from "semantic-ui-react";
-import nosotros from "../../assets/nosotros.jpg";
+import imgNosotros from '../../assets/nosotros.jpg';
 import './NosotrosTips.css';
 
 
@@ -12,7 +12,7 @@ function Nosotros() {
             <Grid celled='internally' centered stackable>
                 <Grid.Row className="NosotrosRow">
                     <Grid.Column width={4}>
-                        <Image scr={nosotros}></Image>
+                        <Image src={imgNosotros}/>
                     </Grid.Column>
                     <Grid.Column width={4}>
                         <Header className="Header"><h1>QUIENES SOMOS</h1></Header>

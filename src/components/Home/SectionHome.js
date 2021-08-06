@@ -5,29 +5,44 @@ import {
 import imgHome from '../../assets/home-02.jpg';
 import ItemCard from '../itemList/ItemCard';
 import { ItemsContext } from '../Context/ItemsContext';
+import LoaderCentered from '../Context/LoaderCentered';
+import './Section.css';
+
 
 function Section() {
-    const [Items] = useContext(ItemsContext);
+    const { items, IsLoading } = useContext(ItemsContext);
+    const [Items] = items;
+    const [Loader] = IsLoading;
 
-    return (
-        <div>
-            <Image src={imgHome} ></Image>
-            <Header style={{marginBottom:"2rem", marginTop: "2rem"}}><h1>OFERTAS</h1></Header>
-            <Grid.Column className="displayGroup">
-                <Grid stackable >
-            {Items.map((item) => {
+    //PRODUCTOS ON SALE
+    const ItemsOnSale = (
+            Items.map((item) => {
                 if (item.OnSale === "true") {
                     return (
-                        <Grid.Column computer={4} tablet={4} mobile={8}>
-                              <ItemCard items={item} key={item.id} />
+                        <Grid.Column computer={4} tablet={8} mobile={8}>
+                            <ItemCard items={item} key={item.id} />
                         </Grid.Column>
                     )
                 }
-            })  } 
-        </Grid>
-     </Grid.Column>
-           
-        </div>
+            })
+        
+    );
+
+    return (
+        <div>
+        <Grid className="displayGroup" >
+            <Image src={imgHome} className="imgHome"></Image>
+             <div> {Loader ? <LoaderCentered /> : null} </div>
+                <Grid.Row>
+                <Grid.Column width={13} >
+                <Header><h1 className="titleHome">¡NUESTRAS NUEVAS OFERTAS!</h1></Header>
+                <Grid stackable>
+                     {ItemsOnSale} 
+                 </Grid>
+         </Grid.Column>   
+     </Grid.Row>
+    </Grid>
+</div>
     )
 
 

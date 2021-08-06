@@ -11,16 +11,11 @@ function ItemListContainer() {
   const [Items] = items;
   const [Loader] = IsLoading;
   
-
-  // const Loading = (
-  //   <div> {Loader ? <LoaderCentered/> : null} </div>
-  // );
-
   
 //TODOS LOS PRODUCTOS
   const ItemsInicial = (
     Items.map((item) => (
-      <Grid.Column computer={4} tablet={4} mobile={8}>
+      <Grid.Column computer={4} tablet={8} mobile={8}>
           <ItemCard items={item} key={item.id} />
       </Grid.Column>
       )
@@ -33,10 +28,6 @@ function ItemListContainer() {
     <Grid className="displayGroup" >
       <div> {Loader ? <LoaderCentered /> : null} </div>
       <Grid.Row>
-      <GridColumn only='computer' width={3} style={{height: "100%"}} >
-         
-      </GridColumn>
-       
         <Grid.Column width={13}> 
           <Grid stackable >
             {ItemsInicial }

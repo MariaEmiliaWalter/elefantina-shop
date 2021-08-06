@@ -14,6 +14,7 @@ import Categorias from './Views/Categorias';
 import SignIn from './Views/Ingreso';
 import LogIn from "./Views/Login";
 import TipsElefantina from "./Views/TipsElefantina";
+import MiCuenta from './Views/MiCuenta';
 //Components
 import Header from "./components/Header/Header";
 //Provider
@@ -40,6 +41,7 @@ function App() {
             <Route path="/cart" component={Cart}></Route>    
             <Route path="/Login/:Estado" component={LogIn}></Route>
             <Route path="/tips" component={TipsElefantina}></Route>
+                  <Route path="/account" component={MiCuenta}></Route>
           </Switch>
         </div>
       </ItemsProvider>

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext} from "react";
 import {
   Card, Image, Button,Icon
 } from 'semantic-ui-react';
@@ -8,23 +8,8 @@ import {Link} from 'react-router-dom';
 
 function ItemCard({ items }) {
 
-//  const [IsVisible, setIsVisible ] = useState(false);
-
-//   const changeVisibility = () => {
-// setIsVisible(!IsVisible)
-// };
- 
-
-  // setTimeout(function () {
-  //   $(".visible").fadeOut(1500);
-  // }, 3000);
-
-  // setTimeout(function () {
-  //   $(".hidden").fadeIn(1500);
-  // }, 6000);
-
   return (
-    <div >
+       <div >
       <Card raised key={items.id} className="ItemCard" >
         <Card.Content>
             <Image

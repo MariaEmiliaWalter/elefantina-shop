@@ -3,3 +3,32 @@
     padding-left: 1rem !important;
     padding-right: 1rem !important;
   } 
+
+.titleHome{
+    color:rgb(70, 133, 184) !important;
+    margin-bottom: 2rem !important;
+    margin-top: 2rem !important;
+    font-size: 200% !important;
+  }
+
+
+
+  /* Mobile */
+@media only screen and (max-width: 767px) {
+  [class*="titleHome"] {
+   font-size: 100% !important;
+    margin-bottom: unset !important;
+    margin-top: unset !important;
+  }
+  [class*="imgHome"] {
+    display: none !important;
+  }
+}
+
+
+/* ipad */
+@media (min-width: 768px) and (max-width: 1200px) {
+  [class*="titleHome"] {
+    font-size: 120% !important;
+  }
+}

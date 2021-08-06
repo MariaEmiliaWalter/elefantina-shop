@@ -128,6 +128,12 @@ const [Dropdown, setDropdown] = useState(false);
              </Menu.Item>
              </Link>
 
+             <Link to="/account"><Menu.Item as="a">
+               <Icon name="user" />
+               Mi cuenta
+             </Menu.Item>
+             </Link>
+
            </Sidebar>
          </Grid.Column>
        </Grid>

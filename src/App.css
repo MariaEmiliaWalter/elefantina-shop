@@ -43,6 +43,23 @@ border: 2px solid  #a6c3ce !important;
 }
 
 
+.ContactGrid{
+  margin-top: 5rem!important;
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
+ font-size: medium !important;
+}
+
+.InfoRow{
+color: #a0bbd3 !important;
+font-weight: 500 !important;
+padding-bottom: 1rem !important;
+}
+
+.FormContact{
+  padding-bottom: 1rem !important;
+}
+
 /* Mobile 
 @media only screen and (max-width: 767px) {
   [class*="btn2"] {

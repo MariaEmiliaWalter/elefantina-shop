@@ -6,7 +6,7 @@ import { useCart } from "react-use-cart";
 
 function ItemCount({Product}) {
   let StockInicial = Product.stock;
-  const { addItem, updateItemQuantity } = useCart();
+  const { addItem } = useCart();
   const [counter, setCounter] = useState(0);
   const [stock, setStock] = useState(Number(StockInicial));
   const [Quantity, setQuantity] = useState(0);
@@ -39,14 +39,11 @@ const EditData = () => {
 
 const onHandleSubmit = () => {
     addItem(Product, Number(Quantity));
-    console.log("ADD ITEM", Product, Number(Quantity))
+    //console.log("ADD ITEM", Product, Number(Quantity))
     EditData();
     setCounter(0);
     setQuantity(0);
 };
-
-  //let addQuantity = Number(Quantity);
-
 
 
   return (

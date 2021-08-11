@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import {React, useState,useContext} from 'react';
 import {
 Button,
   Grid,
@@ -13,13 +13,19 @@ Divider,
 import "../Header/Header.css";
 import { useCart } from "react-use-cart";
 import { useHistory  } from 'react-router-dom';
-
+import { ItemsContext } from '../Context/ItemsContext';
+import { db } from "../Context/Firebase";
 
 
 function CartWidget() {
 let history = useHistory();
 const [visible, setVisible] = useState(false);
 const [active, setActive] = useState(false);
+const { itemsDB } = useContext(ItemsContext);
+const [ItemsDB] = itemsDB;
+
+
+  const [stock, setStock] = useState(Number(0))
 
 const openSidebar = () => {
       setVisible(!visible);
@@ -42,12 +48,20 @@ const {
     items,
     updateItemQuantity,
     removeItem,
-    cartTotal,
     emptyCart,
-    totalItems,
   } = useCart();
 
-
+const UpdateStock = (item) =>{
+  ItemsDB.filter(i => item.id === i.id).map(filteredItem => {
+      setStock(Number(filteredItem.stock));
+    console.log("STOCK", filteredItem.stock);
+    console.log(stock);
+    db.collection('Productos').doc(filteredItem.id).set({ ...filteredItem, stock });
+    }) 
+       
+      
+};
+  
 
 return (
       <div>
@@ -100,7 +114,10 @@ return (
                   return (
                     <li key={item.id}>
                       {item.quantity} x {item.title} = ${price*quantity} &mdash;
-                      <button onClick={() => removeItem(item.id)}>&times; </button>
+                      <button onClick={() => { 
+                        removeItem(item.id);
+                        UpdateStock(item)}
+                      }>&times; </button>
                     </li>
                   )
                 })}

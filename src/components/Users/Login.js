@@ -8,13 +8,14 @@ import {
     Message
 } from "semantic-ui-react";
 import { useHistory } from 'react-router-dom';
-//import { UserContext } from '../Context/UserContext';
+import Session from 'react-session-api'
+
 
 function Login() {
     const [disabled, setDisabled] = useState(false);
     const [IsLogged, setIsLogged] = useState(false)
     let history = useHistory();
-    //const Usuarios = useContext(UserContext);
+
 
     const initialState = {
         Usuario: '',
@@ -23,8 +24,7 @@ function Login() {
         IsLogged,
     };
     const [User, setUser] = useState(initialState);
-
-
+    
     const handleOnChange = (e) => {
         setIsLogged(!IsLogged);
         const { name, value } = e.target;
@@ -42,6 +42,10 @@ function Login() {
         //     <p>Por favor, vuelve a escribir los datos correctamente o intenta registrándote</p>
         // </Message>
         // )}
+
+
+        Session.onSet("ActiveUser", User.Usuario);
+        //Session.onSet(["Usuario",User.Usuario],["Email", User.Email], ["Contraseña", User.Contraseña]);
        setUser({ ...initialState });
     };
 

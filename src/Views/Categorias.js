@@ -9,9 +9,10 @@ function Categorias() {
 
     const { Categoria } = useParams()
 
-    const { items, IsLoading } = useContext(ItemsContext);
-    const [Items] = items;
+    const { itemsDB, IsLoading } = useContext(ItemsContext);
+    const [Items] = itemsDB;
     const [Loader] = IsLoading;
+
     return (
         <div >
             <h1>Categorias: {Categoria}</h1>

@@ -7,8 +7,8 @@ import LoaderCentered from '../Context/LoaderCentered';
 
 
 function ItemListContainer() {
-  const { items, IsLoading } = useContext(ItemsContext);
-  const [Items] = items;
+  const { itemsDB, IsLoading } = useContext(ItemsContext);
+  const [Items] = itemsDB;
   const [Loader] = IsLoading;
   
   

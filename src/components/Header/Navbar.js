@@ -142,15 +142,3 @@ const [Dropdown, setDropdown] = useState(false);
 
 export default SideNavbar;
 
-
-{/* <Dropdown fluid inline container>
-  <Dropdown.Menu>
-    <Link to="/productos">
-      <Dropdown.Item className="link item" text='Ver todos los productos' />
-    </Link>
-    <Dropdown.Header content="Categorias" />
-    <Dropdown.Item text='Edit Profile' />
-    <Dropdown.Item text='Choose Language' />
-    <Dropdown.Item text='Account Settings' />
-  </Dropdown.Menu>
-</Dropdown> */}

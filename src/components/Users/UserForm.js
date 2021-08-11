@@ -42,7 +42,6 @@ const [User, setUser] = useState(initialState);
         e.preventDefault();
         AddUser(User);
         history.push("/home");
-
         //setUser({ ...initialState });
     };
 

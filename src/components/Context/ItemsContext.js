@@ -31,7 +31,7 @@ export const ItemsProvider =  (props) => {
 
 
         return (
-            <ItemsContext.Provider value={{ items: [products, setProducts], IsLoading: [IsLoading, setIsLoading] }} >
+            <ItemsContext.Provider value={{ itemsDB: [products, setProducts], IsLoading: [IsLoading, setIsLoading] }} >
                 {props.children}
             </ItemsContext.Provider>
         )

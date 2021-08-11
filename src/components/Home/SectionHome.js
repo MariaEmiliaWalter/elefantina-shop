@@ -10,8 +10,8 @@ import './Section.css';
 
 
 function Section() {
-    const { items, IsLoading } = useContext(ItemsContext);
-    const [Items] = items;
+    const { itemsDB, IsLoading } = useContext(ItemsContext);
+    const [Items] = itemsDB;
     const [Loader] = IsLoading;
 
     //PRODUCTOS ON SALE

@@ -5,7 +5,8 @@ import { ItemsContext} from '../components/Context/ItemsContext';
 
 function ItemDetailContainer({ match }) {
 
-const [Items] = useContext(ItemsContext);
+  const { itemsDB } = useContext(ItemsContext);
+  const [Items] = itemsDB;
 let itemID = match.params.id;
 console.log("item",itemID);
 

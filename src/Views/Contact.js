@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import {
-    Grid, Form, Button, Input, Image,Icon
+    Grid, Form, Button, Input, Image,Icon,Modal
 } from "semantic-ui-react";
 import { db } from '../components/Context/Firebase';
 import "../App.css";
@@ -16,7 +16,7 @@ function Contact() {
     const [Consulta, setConsulta] = useState(initialState);
     const [Complete, setComplete] = useState(false);
     const [disabled, setDisabled] = useState(true);
-
+    const [open, setOpen] = useState(false);
 
     const FormComplete = () => {
         if (Consulta.Email != null && Consulta.Mensaje != null && Consulta.Nombre != null) {
@@ -25,6 +25,7 @@ function Contact() {
         }
     };
 
+ 
     const handleOnChange = (e) => {
         const { name, value } = e.target;
         setConsulta({ ...Consulta, [name]: value });
@@ -35,11 +36,17 @@ function Contact() {
         db.collection('Consultas').doc().set(object);
     };
 
+    const openModal = () => {
+        setOpen(true);
+    };
+
     const handleOnSubmit = (e) => {
         e.preventDefault();
         AddConsulta(Consulta);
         setConsulta({ ...initialState });
+        openModal();
     };
+
 
 
     return (
@@ -107,6 +114,26 @@ function Contact() {
                     <Image src={imgContacto}/>
                  </Grid.Column>
             </Grid>
+
+            <Modal
+                onClose={() => setOpen(false)}
+                open={open}
+                size='small'
+                >
+                <Modal.Header>¡Gracias por tu consulta!</Modal.Header>
+                <Modal.Content>
+                    <p>Te enviaremos nuevamente hacia atrás para que sigas navegando</p>
+                </Modal.Content>
+                <Modal.Actions>
+                    <Button
+                        icon='check'
+                        content='Listo'
+                        onClick={() => setOpen(false)}
+                    />
+                </Modal.Actions>
+            </Modal>
+
+
         </div>
     )
 }

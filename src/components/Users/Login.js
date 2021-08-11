@@ -1,22 +1,20 @@
-import React, { useContext, useState } from 'react';
+import React, {  useState } from 'react';
 import {
     Button,
     Form,
     Input,
     Grid,
     Header,
-    Message
 } from "semantic-ui-react";
 import { useHistory } from 'react-router-dom';
-import Session from 'react-session-api'
+//import Session from 'react-session-api';
+
 
 
 function Login() {
     const [disabled, setDisabled] = useState(false);
     const [IsLogged, setIsLogged] = useState(false)
     let history = useHistory();
-
-
     const initialState = {
         Usuario: '',
         Email: '',
@@ -24,17 +22,35 @@ function Login() {
         IsLogged,
     };
     const [User, setUser] = useState(initialState);
-    
+    //const [ActiveUser, setActiveUser] = useState("")
+
+
     const handleOnChange = (e) => {
         setIsLogged(!IsLogged);
         const { name, value } = e.target;
         setUser({ ...User, [name]: value });
+        //setActiveUser(User.Usuario)
     };
+    
+    
+    // const activacion = (data) => {
+    //     setActiveUser({ ActiveUser: data["ActiveUser"] });
 
-
+    // };
+ 
+   
     const handleOnSubmit = (e) => {
         e.preventDefault();
         history.push("/home");
+
+        //INTENTO DE GUARDAR LA SESIÓN CON UNA REACT-SESSION-API POR NPM:
+
+        // Session.onSet(activacion); 
+        // let userGuardado = Session.get("ActiveUser");
+        // console.log("prueba",userGuardado)
+       
+        //MENSAJE EN CASO DE QUE NO ESTÉ GUARDADO EN SISTEMA:
+
         // } else {
         //     return(
         //     <Message negative>
@@ -42,14 +58,11 @@ function Login() {
         //     <p>Por favor, vuelve a escribir los datos correctamente o intenta registrándote</p>
         // </Message>
         // )}
+        
 
-
-        Session.onSet("ActiveUser", User.Usuario);
-        //Session.onSet(["Usuario",User.Usuario],["Email", User.Email], ["Contraseña", User.Contraseña]);
-       setUser({ ...initialState });
     };
 
-
+ 
 
     return (
         <div>
